@@ -11,15 +11,18 @@ div.input-container{display:none;}
 </style>
 </head>
 <body>
-	<div id="container" align="center">
-		<h2>WebSocket</h2>
-		<a href="javascript:$('.input-container').show();">Hello, WebSocket</a>
-		<div class="input-container">
-			<input type="text" id="userId" placeholder="접속아이디" /> <button onclick="goChat();">접속</button>
-		</div>
-		<br />
-		<a href="chat/groupChat.do">그룹채팅</a>		
-	</div>
+	<h2>WebSocket</h2>
+	<ol>
+		<li>
+			<a href="javascript:$('.input-container').show();">Hello, WebSocket</a>
+			<div class="input-container">
+				<input type="text" id="userId" placeholder="접속아이디" /> <button onclick="goChat();">접속</button>
+			</div>			
+		</li>
+		<li>
+			<a href="chat/groupChat.do">그룹채팅</a>		
+		</li>
+	</ol>		
 <script>
 function goChat(){
 	
