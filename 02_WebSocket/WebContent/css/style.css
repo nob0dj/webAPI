@@ -1,0 +1,200 @@
+@CHARSET "UTF-8";
+
+/****** 채팅창 최상위 요소 *******/
+#chat-container{
+	width:500px;
+	margin:0 auto;
+	position:relative;
+	overflow:hidden;
+}
+
+/****** HEADER ******/
+header{
+	display: flex;
+    justify-content: space-between;
+    border-bottom: .5px solid rgba(0, 0, 0, 0.5);
+    background-color: #a1c0d6;
+}
+.header-col{
+	align-self: center;
+}
+.header-col a.btn-back img{
+	width:45px;
+}
+.header-col h3{
+
+}
+.header-col a.btn-menu img{
+	width:45px;
+}
+/****** CHAT ******/
+#chat{
+	background-color: #a1c0d6;
+	height:600px;
+	padding-top:10px;
+	overflow:auto;
+}
+/*채팅메세지 공통*/
+/*채팅창은 .chat-msg-from-me와 .chat-msg-to-me로 이루어짐 */
+.chat-msg{
+	display: flex;
+	align-items: flex-end;
+    margin-bottom: 25px;
+}
+.chat-msg-time{
+    font-size: 10px;
+    color: rgba(0, 0, 0, 0.5);
+    margin:0 5px;
+}
+.chat-msg-body{
+	padding: 10px 5px;
+    border-radius: 5px;
+}
+
+/*내가쓴 메세지*/
+.chat-msg-from-me{
+	justify-content: flex-end;
+	margin-right:10px;
+}
+.chat-msg-from-me .chat-msg-body{
+	background-color: #ffe934;
+	margin-left: 5px;
+}
+
+/*내게 온 메세지*/
+.chat-msg-to-me{
+	
+}
+.chat-msg-avatar{
+	width: 40px;
+    border-radius: 50%;
+    background-color: rgb(128,174,207);
+    margin: 0 10px;
+    align-self: flex-start;
+}
+.chat-msg-to-me .chat-msg-body{
+	background-color: #ffffff;
+}
+.chat-msg-center{/*사용자아이디+내게온메세지*/
+	position:relative;
+	display: flex;
+    flex-direction: column;
+}
+.chat-msg-center h3{/*사용자아이디*/
+	margin-top:0px;
+	margin-bottom:5px;
+	font-size: 13px;
+}
+.chat-msg-center a {/*파일저장버튼*/
+	position:absolute;
+	bottom:-20px;
+	font-size:13px;
+	text-decoration:none;
+	color:#000;
+}
+.chat-msg-center a:hover{
+	text-decoration:underline;
+}
+/* 구분자 : 입장/퇴장 메세지 */
+.divider{
+	text-align: center;
+    font-size: 12px;
+    color: rgba(0, 0, 0, 0.5);
+	margin-top:20px;
+	margin-bottom:10px;
+	border-top:0.5px solid;
+}
+.divider span{
+    padding: 0.1em 0.5em;
+	line-height: 0;
+    position: relative;
+    top: -0.6em;
+    background: #a1c0d6;/*바탕화면과 동일한 컬러*/
+}
+
+/****** TYPE ******/
+.type{
+	display: flex;
+    justify-content: space-around;
+    padding: 5px;
+    background: #eeeeee;
+}
+.type-col{
+	position: relative;
+}
+.type-col a.btn-plus img{
+	width:40px;
+}
+.type-col input{
+	width: 440px;
+    height: 40px;
+    border-radius: 18px;
+    border: .7px solid rgba(0, 0, 0, 0.3);
+    padding-left:10px
+}
+.type-col a.btn-send{
+    position: absolute;
+    right: 3px;
+    top: 1.5px;
+}
+.type-col a.btn-send img{
+	width:40px;
+	background-color: #ffe934;
+	border-radius: 50%;
+}
+
+/****** MENU-SIDEBAR ******/
+.menu-sidebar{
+	position:absolute;
+	right:-200px;
+	width:200px;
+	height:100%;
+	z-index:100;
+	background:#fff;
+	transition:all 1s;
+	border: .5px solid rgba(0, 0, 0, 0.3);
+}
+.menu-overlay{
+	width:100%;
+	height:100%;
+	cursor:pointer;
+	background-color:rgba(127,127,127,.6);
+	position: absolute;
+    z-index: 99;
+    display:none;
+    opacity:0;
+}
+/*닫기버튼*/
+a#menu-close{
+	text-decoration: none;
+    display: flex;
+    justify-content: flex-end;
+    margin-right: 10px;
+}
+a#menu-close span{
+	color:#000;
+	font-size: 35px;
+    font-weight: bold;
+}
+/* 접속자수 */
+.menu-sidebar p{
+	padding-left: 10px;
+}
+/* 접속사용자 리스트*/
+.userList-container ul{
+	list-style:none;
+	padding:0;
+}
+.userList-container ul li{
+	display:flex;
+	padding: 3px;
+}
+.userList-container ul li h3{
+	margin:0;
+	align-self:center;
+}
+/* 파일관련 */
+.chat-msg-img{
+	max-width: 200px;
+    max-height: 200px;
+}

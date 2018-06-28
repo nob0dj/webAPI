@@ -14,13 +14,20 @@ div.input-container{display:none;}
 	<h2>WebSocket</h2>
 	<ol>
 		<li>
-			<a href="javascript:$('.input-container').show();">Hello, WebSocket</a>
+			<a href="javascript:$('.input-container:eq(0)').show();">Hello, WebSocket</a>
 			<div class="input-container">
 				<input type="text" id="userId" placeholder="접속아이디" /> <button onclick="goChat();">접속</button>
 			</div>			
 		</li>
 		<li>
-			<a href="chat/groupChat.do">그룹채팅</a>		
+			<a href="javascript:$('.input-container:eq(1)').show();">그룹채팅</a>
+			<div class="input-container">
+				<form action="chat/login.chat" method="post">
+					<input type="text" name="userId" placeholder="아이디" /> <br /> 
+					<input type="password" name="password" placeholder="비밀번호" /><br />
+					<button type="submit">로그인</button>
+				</form>
+			</div>		
 		</li>
 	</ol>		
 <script>
@@ -28,7 +35,7 @@ function goChat(){
 	
 	var userId = $("#userId").val().trim();
 	if(userId.length!=0)
-		location.href = "${pageContext.request.contextPath}/chat/chat.do?userId="+userId;
+		location.href = "${pageContext.request.contextPath}/chat/chat.chat?userId="+userId;
 }
 </script>
 </body>

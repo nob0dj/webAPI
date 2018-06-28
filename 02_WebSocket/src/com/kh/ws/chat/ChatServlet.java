@@ -12,7 +12,7 @@ import javax.servlet.http.HttpSession;
 /**
  * Servlet implementation class ChatServlet
  */
-@WebServlet("/chat/chat.do")
+@WebServlet("/chat/chat.chat")
 public class ChatServlet extends HttpServlet {
 	private static final long serialVersionUID = 1L;
        

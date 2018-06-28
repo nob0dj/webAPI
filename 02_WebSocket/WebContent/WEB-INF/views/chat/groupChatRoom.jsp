@@ -85,7 +85,7 @@ var downloadFileName; //다운로드할 파일명을 저장해 두었다가, 다
 
 //웹소켓시작
 var host = location.host;//localhost이거나, 서버컴퓨터 ip주소를 담아둠.
-var ws = new WebSocket('ws://'+ host +'${pageContext.request.contextPath}/helloWebSocket.chat');
+var ws = new WebSocket('ws://'+ host +'${pageContext.request.contextPath}/chat/${chatRoomId}');
 
 //파일전송용 속성지정
 ws.binaryType = "arraybuffer";
@@ -112,7 +112,7 @@ ws.onclose = function(event){
 
 function onOpen(e){
 	//채팅시작메세지
-	$("#chat").append("<div class='divider'><span>[${userId}]로 접속하셨습니다.</span></div>");
+	$("#chat").append("<div class='divider'><span>[${loginUser.userId}]님, 채팅이 시작되었습니다.</span></div>");
 }
 function onMessage(e){
 	console.log(e.data);

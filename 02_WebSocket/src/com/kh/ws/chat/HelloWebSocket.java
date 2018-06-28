@@ -1,7 +1,8 @@
 package com.kh.ws.chat;
 
+import java.io.BufferedInputStream;
 import java.io.File;
-import java.io.FileNotFoundException;
+import java.io.FileInputStream;
 import java.io.FileOutputStream;
 import java.io.IOException;
 import java.nio.ByteBuffer;
@@ -77,6 +78,32 @@ public class HelloWebSocket {
 				msg = String.join("§", msgArr);//[2]의 end를 파일명으로 변경후 다시 csv문자열로 join, 다른 클라이언트에 전송함.
 				
 			}
+		}
+		
+		if("download".equals(type)){
+			
+	        String fileName = msgArr[2];
+	        System.out.println("파일다운로드요청 : " + fileName);
+
+	        // 파일 객체 생성
+	        File file = new File(filePath+File.separator+fileName);
+
+	        // 파일을 담을 바이트 배열
+	        byte[] fileBytes = new byte[(int)file.length()];
+	        
+	        // 파일로 연결된 스트림 생성
+	        BufferedInputStream bis = new BufferedInputStream(new FileInputStream(file));
+	        
+	        // 바이트 배열에 파일 저장
+	        bis.read(fileBytes);
+
+	        //바이트 배열을 ByteBuffer에 담는다
+	        ByteBuffer buf = ByteBuffer.wrap(fileBytes);
+
+	        // ByteBuffer 를 클라이언트로 보낸다.
+	        session.getBasicRemote().sendBinary(buf);
+			
+	        return;
 		}
 		
 		/*하나의 업무가 실행하는 동안 사용자변경이 일어나서는 안된다.
