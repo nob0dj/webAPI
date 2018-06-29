@@ -13,7 +13,7 @@ import javax.websocket.Session;
 /**
  * Servlet implementation class LeaveGroupChatServlet
  */
-@WebServlet("/chat/leaveGroupChat.chat")
+@WebServlet("/groupChat/leaveGroupChat.chat")
 public class LeaveGroupChatServlet extends HttpServlet {
 	private static final long serialVersionUID = 1L;
        

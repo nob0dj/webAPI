@@ -15,7 +15,7 @@ import com.kh.ws.model.vo.User;
 /**
  * Servlet implementation class LoginServlet
  */
-@WebServlet("/chat/login.chat")
+@WebServlet("/groupChat/login.chat")
 public class LoginServlet extends HttpServlet {
 	private static final long serialVersionUID = 1L;
     private int LOGINOK = 1;
@@ -57,7 +57,7 @@ public class LoginServlet extends HttpServlet {
 		if(flag==LOGINOK){
 			//System.out.println("loginUser="+loginUser);
 			request.getSession().setAttribute("loginUser", loginUser);
-			response.sendRedirect(request.getContextPath()+"/chat/groupChat.chat");
+			response.sendRedirect(request.getContextPath()+"/groupChat/groupChat.chat");
 		}
 		else {
 			String msg = "";

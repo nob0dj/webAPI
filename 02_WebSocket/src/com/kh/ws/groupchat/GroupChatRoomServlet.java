@@ -18,7 +18,7 @@ import javax.websocket.Session;
 /**
  * Servlet implementation class GroupChatRoomServlet
  */
-@WebServlet("/chat/groupChatRoom.chat")
+@WebServlet("/groupChat/groupChatRoom.chat")
 public class GroupChatRoomServlet extends HttpServlet {
 	private static final long serialVersionUID = 1L;
        
@@ -87,7 +87,7 @@ public class GroupChatRoomServlet extends HttpServlet {
 		
 		//2.뷰모델 처리  
 		request.setAttribute("chatRoomId", chatRoomId);
-		request.getRequestDispatcher("/WEB-INF/views/chat/groupChatRoom.jsp")
+		request.getRequestDispatcher("/WEB-INF/views/groupChat/groupChatRoom.jsp")
 			   .forward(request, response);
 		
 	}

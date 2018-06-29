@@ -19,7 +19,7 @@ import com.kh.ws.model.vo.User;
 /**
  * Servlet implementation class GroupchatServlet
  */
-@WebServlet("/chat/groupChat.chat")
+@WebServlet("/groupChat/groupChat.chat")
 public class GroupChatServlet extends HttpServlet {
 	private static final long serialVersionUID = 1L;
        
@@ -40,6 +40,7 @@ public class GroupChatServlet extends HttpServlet {
 			response.sendRedirect(request.getContextPath());
 			return;
 		}
+		
 		//내가 등록된 채팅방목록 가져오기
 		String userId = ((User)request.getSession().getAttribute("loginUser")).getUserId();
 
@@ -66,7 +67,7 @@ public class GroupChatServlet extends HttpServlet {
 
         //신규채팅을 위한 사용자 목록용
 		request.setAttribute("userList", UserListSingletone.getInstance().getUserList());
-		request.getRequestDispatcher("/WEB-INF/views/chat/groupChat.jsp")
+		request.getRequestDispatcher("/WEB-INF/views/groupChat/groupChat.jsp")
 			   .forward(request, response);
 	}
 

@@ -31,14 +31,14 @@
 		</option>
 		</c:forEach>
 	</select>
-	<button onclick="goChat();">GO</button>
+	<button onclick="goGroupChat();">GO</button>
 	<button onclick="leaveChat();">LEAVE</button>
 	
 	</c:if>
 	
 	<hr />
 	<h3>친구목록</h3>
-	<form id="newChatFrm" action="${pageContext.request.contextPath }/chat/groupChatRoom.chat" method="post">
+	<form id="newGroupChatFrm" action="${pageContext.request.contextPath }/groupChat/groupChatRoom.chat" method="post">
 		<ul style="list-style:none;">
 			<c:forEach items="${userList}" var="u" varStatus="vs">
 			<c:if test="${u!=loginUser }">
@@ -54,14 +54,14 @@
 			</c:forEach>
 		</ul>
 	</form>
-	<button onclick="goNewChat();">새 채팅 시작하기</button>
+	<button onclick="goNewGroupChat();">새 채팅 시작하기</button>
 <script>
 function leaveChat(){
 	var chatRoomId = $("#myChatRoomList").val();
 	if(chatRoomId=="") return;
 
 	$.ajax({
-		url:"${pageContext.request.contextPath}/chat/leaveGroupChat.chat",
+		url:"${pageContext.request.contextPath}/groupChat/leaveGroupChat.chat",
 		data : {chatRoomId:chatRoomId, userId:"${loginUser.userId}"},
 		type : "post",
 		success : function(data){
@@ -77,17 +77,17 @@ function leaveChat(){
 	});
 		
 }
-function goChat(){
+function goGroupChat(){
 	var chatRoomId = $("#myChatRoomList").val();
 	if(chatRoomId=="") return;
-	location.href = "${pageContext.request.contextPath}/chat/groupChatRoom.chat?chatRoomId="+chatRoomId;
+	location.href = "${pageContext.request.contextPath}/groupChat/groupChatRoom.chat?chatRoomId="+chatRoomId;
 }
-function goNewChat(){
+function goNewGroupChat(){
 	if($("[name=user]:checked").length==0){
 		alert("한 명이상 선택하세요.");
 		return;
 	}
-	$("#newChatFrm").submit();
+	$("#newGroupChatFrm").submit();
 }
 </script>
 </body>

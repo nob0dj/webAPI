@@ -27,7 +27,7 @@
 		
 		<header>
 			<div class="header-col">
-				<a href="${pageContext.request.contextPath }/chat/groupChat.chat" class="btn-back">
+				<a href="${pageContext.request.contextPath }/groupChat/groupChat.chat" class="btn-back">
 					<img src="${pageContext.request.contextPath }/images/back.png" alt="뒤로가기" />
 				</a>
 			</div>
@@ -42,7 +42,7 @@
 		</header>
 		
 		<div id="chat">
-		  <div class="chat-msg chat-msg-from-me">
+		  <%-- <div class="chat-msg chat-msg-from-me">
 		    <span class="chat-msg-time">17:55</span>
 		    <span class="chat-msg-body">
 		      안녕하세요, 내가 보낸 테스트메세지입니다.
@@ -57,7 +57,7 @@
 		      </span>
 		    </div>
 		    <span class="chat-msg-time">19:35</span>
-		  </div>
+		  </div> --%>
 		</div><!-- end of #chat -->
 		
 		<div class="type">
@@ -82,7 +82,7 @@ var downloadFileName; //다운로드할 파일명을 저장해 두었다가, 다
 
 //웹소켓시작
 var host = location.host;//localhost이거나, 서버컴퓨터 ip주소를 담아둠.
-var ws = new WebSocket('ws://'+ host +'${pageContext.request.contextPath}/chat/${chatRoomId}');
+var ws = new WebSocket('ws://'+ host +'${pageContext.request.contextPath}/groupChat/${chatRoomId}');
 
 //파일전송용 속성지정
 ws.binaryType = "arraybuffer";

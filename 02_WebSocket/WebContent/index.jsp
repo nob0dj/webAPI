@@ -22,11 +22,11 @@ div.input-container{display:none;}
 		<li>
 			<a href="javascript:void(0);" onclick="$('.input-container:eq(1)').show().find(':text').focus();">그룹채팅</a>
 			<div class="input-container">
-				<form action="chat/login.chat" method="post">
-					<input type="text" name="userId" placeholder="아이디" /> <br /> 
-					<input type="password" name="password" placeholder="비밀번호" /><br />
-					<button type="submit">로그인</button>
-				</form>
+				<form action="groupChat/login.chat" method="post">
+	                <input type="text" name="userId" placeholder="아이디" required/> <br /> 
+	                <input type="password" name="password" placeholder="비밀번호" required/><br />
+	                <button type="submit">로그인</button>
+	            </form>
 			</div>		
 		</li>
 	</ol>		
