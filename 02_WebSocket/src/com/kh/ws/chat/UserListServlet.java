@@ -1,8 +1,8 @@
 package com.kh.ws.chat;
 
 import java.io.IOException;
-import java.util.Collection;
 import java.util.Map;
+import java.util.Set;
 
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
@@ -16,7 +16,7 @@ import com.google.gson.Gson;
 /**
  * Servlet implementation class UserListServlet
  */
-@WebServlet("/chat/getUserList.chat")
+@WebServlet("/chat/userList.chat")
 public class UserListServlet extends HttpServlet {
 	private static final long serialVersionUID = 1L;
        
@@ -32,10 +32,10 @@ public class UserListServlet extends HttpServlet {
 	 * @see HttpServlet#doGet(HttpServletRequest request, HttpServletResponse response)
 	 */
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		Map<Session, String> clients = HelloWebSocket.getClients();
-		Collection<String> userList = clients.values();
+		Map<String, Session> clients = HelloWebSocket.getClients();
+		Set<String> userList = clients.keySet();
 		
-		System.out.println("userList@UserListServlet="+userList);
+		//System.out.println("userList@UserListServlet="+userList);
 		
 		response.setContentType("application/json; charset=UTF-8");
 		new Gson().toJson(userList, response.getWriter());

@@ -6,10 +6,10 @@ import java.io.FileInputStream;
 import java.io.FileOutputStream;
 import java.io.IOException;
 import java.nio.ByteBuffer;
+import java.util.Collection;
 import java.util.Collections;
 import java.util.HashMap;
 import java.util.Map;
-import java.util.Set;
 
 import javax.websocket.EndpointConfig;
 import javax.websocket.OnClose;
@@ -20,21 +20,24 @@ import javax.websocket.Session;
 import javax.websocket.server.ServerEndpoint;
 
 
-@ServerEndpoint(value="/helloWebSocket.chat", configurator=HttpSessionConfigurator.class)
+@ServerEndpoint(value="/chat/helloWebSocket", configurator=ChatConfigurator.class)
 public class HelloWebSocket {
 	private File uploadFile = null;
     private String fileName = null;
     private FileOutputStream fos = null;
     final static String filePath="C:\\Users\\nobodj\\Dropbox\\Coding\\Git\\webAPI\\02_WebSocket\\WebContent\\upload\\chat";
     
-	//현재접속한 WebSocketSession과 userId를 관리할 static필드(동기화처리 필수) 
-	private static Map<Session,String> clients = Collections.synchronizedMap(new HashMap<Session,String>());
+	//현재접속한 userId와 WebSocketSession을 매핑해 관리할 static필드(동기화처리 필수) 
+	private static Map<String,Session> clients = Collections.synchronizedMap(new HashMap<>());
 	
 	@OnOpen
 	public void onOpen(EndpointConfig config, Session session) throws IOException{
 		//접속리스트에 새로 연결 요청이 들어온 사용자를 추가한다.
 		String userId = (String)config.getUserProperties().get("userId");
-		clients.put(session,userId);
+		clients.put(userId, session);
+		
+		//세션에 userId를 담아서 onClose등에서 사용할 수 있게함.
+		session.getUserProperties().put("userId", userId);
 		
 		System.out.println("현재접속자("+clients.size()+") : "+clients);
 		
@@ -62,11 +65,10 @@ public class HelloWebSocket {
 		String[] msgArr = msg.split("§");
 		String type = msgArr[0];//welcome | adieu | message | file
 		
-		if("file".equals(type)){
-			String temp = msgArr[2];
+		if("upload".equals(type)){
 			
-			if(!"end".equals(temp)){
-				fileName = temp;//파일명을 필드변수 fileName에 담아둠.
+			if(!"end".equals(msgArr[2])){
+				fileName = msgArr[2];//파일명을 필드변수 fileName에 담아둠.
 				uploadFile = new File(filePath+File.separator+fileName);
 				fos = new FileOutputStream(uploadFile);
 				return;//다른 클라이언트에 전송하지 않고 종료.
@@ -80,7 +82,7 @@ public class HelloWebSocket {
 			}
 		}
 		
-		if("download".equals(type)){
+if("download".equals(type)){
 			
 	        String fileName = msgArr[2];
 	        System.out.println("파일다운로드요청 : " + fileName);
@@ -88,7 +90,7 @@ public class HelloWebSocket {
 	        // 파일 객체 생성
 	        File file = new File(filePath+File.separator+fileName);
 
-	        // 파일을 담을 바이트 배열
+	        // 파일을 담을 바이트 배열(inputstream에 전달해서 데이터를 담음.)
 	        byte[] fileBytes = new byte[(int)file.length()];
 	        
 	        // 파일로 연결된 스트림 생성
@@ -97,7 +99,7 @@ public class HelloWebSocket {
 	        // 바이트 배열에 파일 저장
 	        bis.read(fileBytes);
 
-	        //바이트 배열을 ByteBuffer에 담는다
+	        //바이트 배열을 ByteBuffer(최종적으로 필요한 타입)에 담는다
 	        ByteBuffer buf = ByteBuffer.wrap(fileBytes);
 
 	        // ByteBuffer 를 클라이언트로 보낸다.
@@ -109,9 +111,9 @@ public class HelloWebSocket {
 		/*하나의 업무가 실행하는 동안 사용자변경이 일어나서는 안된다.
 		즉, NullPointerException을 방지하기 위해 동기화처리*/
 		synchronized (clients) {
-			Set<Session> set = clients.keySet();
+			Collection<Session> sessionList = clients.values();
 			
-			for(Session client : set) 
+			for(Session client : sessionList) 
 				
 				//메세지를 작성한 본인을 제외하고, 메세지를 보냄.
 				if(!client.equals(session))
@@ -145,13 +147,14 @@ public class HelloWebSocket {
 	
 	@OnClose
 	public void onClose(Session session) throws IOException{
-		onMessage("adieu§"+clients.get(session), session);
-		clients.remove(session);
+		String userId = (String)session.getUserProperties().get("userId");
+		onMessage("adieu§"+userId, session);
+		clients.remove(userId);
 		
 		System.out.println("현재접속자("+clients.size()+") : "+clients);
 	}
 
-	public static Map<Session, String> getClients() {
+	public static Map<String,Session> getClients() {
 		return clients;
 	}
 }

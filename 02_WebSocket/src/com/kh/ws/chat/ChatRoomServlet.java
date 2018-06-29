@@ -28,11 +28,11 @@ public class ChatRoomServlet extends HttpServlet {
 	 * @see HttpServlet#doGet(HttpServletRequest request, HttpServletResponse response)
 	 */
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+		//이후 ChatConfig클래스의 modifyHandshake메소드에서 
+		//HandShakeRequest => HttpSession 세션속성  => EndServerPointConfig의 userProperties에 저장됨. 
 		HttpSession session = request.getSession();
-		session.setAttribute("userId", request.getParameter("userId"));
-		//System.out.println("userId@sessionAttribute="+session.getAttribute("userId"));
-		
-		request.getRequestDispatcher("/WEB-INF/views/chat/chat.jsp").forward(request, response);
+		session.setAttribute("userId", request.getParameter("userId"));		
+		request.getRequestDispatcher("/WEB-INF/views/chat/chatRoom.jsp").forward(request, response);
 	}
 
 	/**

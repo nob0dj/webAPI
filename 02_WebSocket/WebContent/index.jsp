@@ -35,7 +35,7 @@ function goChat(){
 	
 	var userId = $("#userId").val().trim();
 	if(userId.length!=0)
-		location.href = "${pageContext.request.contextPath}/chat/chat.chat?userId="+userId;
+		location.href = "${pageContext.request.contextPath}/chat/chatRoom.chat?userId="+userId;
 }
 </script>
 </body>

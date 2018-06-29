@@ -42,9 +42,7 @@
 		</header>
 		
 		<div id="chat">
-		  <!-- <div class="date-divider">
-		    <span class="date-divider__text">Wednesday, August 2, 2017</span>
-		  </div> -->
+		  <!-- 테스트메세지 -->
 		  <div class="chat-msg chat-msg-from-me">
 		    <span class="chat-msg-time">17:55</span>
 		    <span class="chat-msg-body">
@@ -80,12 +78,12 @@
 <script>
 //전역변수선언
 var imgExt = ["png","jpg","jpeg","gif","tiff"];//사진확장자 검사용 배열
-var date;//파일전송간 여러함수에서 사용할 date변수를 전역에 선언함.
+var d;//파일전송간 여러함수에서 사용할 date변수를 전역에 선언함.
 var downloadFileName; //다운로드할 파일명을 저장해 두었다가, 다운로드된 arraybuffer타입에 파일명으로 지정.
 
 //웹소켓시작
 var host = location.host;//localhost이거나, 서버컴퓨터 ip주소를 담아둠.
-var ws = new WebSocket('ws://'+ host +'${pageContext.request.contextPath}/helloWebSocket.chat');
+var ws = new WebSocket('ws://'+ host +'${pageContext.request.contextPath}/chat/helloWebSocket');
 
 //파일전송용 속성지정
 ws.binaryType = "arraybuffer";
@@ -133,8 +131,8 @@ function onMessage(e){
 	var type = msgArr[0];
 	var sender = msgArr[1];
 	var msg = msgArr[2];
-	var date = new Date(Number(msgArr[3]));//반드시 casting
-	var time = getTimeStr(date);
+	var longTime = msgArr[3];
+    var time = getTimeStr(new Date(Number(longTime)));//반드시 캐스팅할것. 
 
 	if(type==="message"){
 		/* 받은 메세지 */
@@ -154,9 +152,9 @@ function onMessage(e){
 	else if(type==="adieu"){
 		$("#chat").append("<div class='divider'><span>["+sender+"]님이 퇴장하셨습니다.</span></div>");
 	}
-	else if(type==="file"){
+	else if(type==="upload"){
 	    var ext = msg.substring(msg.lastIndexOf(".")+1).toLowerCase();
-	    console.log("ext="+ext);
+	    //console.log("ext="+ext);
 		var bool = imgExt.indexOf(ext)>-1;//사진확장자 검사
 	    
 		var html = '<div class="chat-msg chat-msg-to-me">';
@@ -180,10 +178,10 @@ function onMessage(e){
 	$("#chat").scrollTop($("#chat").height());
 }
 function onError(e){
-	alert("WebSocket Error Occured!");
+	//alert("WebSocket Error Occured!");
 }
 function onClose(e){
-	alert("WebSocket Connection Closed!");
+	//alert("WebSocket Connection Closed!");
 }
 function send(){
 	var msg = $("#msg").val().trim();
@@ -191,10 +189,11 @@ function send(){
 		
 	if(msg.length==0) return;
 
-	var date = new Date();
-	var time = getTimeStr(date);
+	//현재시각정보를 00:00형식으로 생성.
+	var d = new Date();
+	var time = getTimeStr(d);
 	
-	/*전송할 메세지 */
+	/*내 화면에 출력할 전송메세지 */
 	var html = '<div class="chat-msg chat-msg-from-me">';
 	html += '<span class="chat-msg-time">'+time+'</span>';
 	html += '<span class="chat-msg-body">'+msg+'</span>';
@@ -203,7 +202,8 @@ function send(){
 	$("#chat").append(html);
 
 	//서버전송
-	ws.send("message§${userId}§"+msg+"§"+date.getTime());
+	//ws.send("message§${userId}§"+msg);
+	ws.send("message§${userId}§"+msg+"§"+d.getTime());
 
 	//input#msg 초기화
 	$("#msg").val("");
@@ -241,7 +241,7 @@ function menuOpen() {
 
     //접속자명단 가져오기
     $.ajax({
-		url : "${pageContext.request.contextPath}/chat/getUserList.chat",
+		url : "${pageContext.request.contextPath}/chat/userList.chat",
 		success : function(data){
 			console.log(data);
 			var userList = data;
@@ -297,38 +297,43 @@ function sendFileConfirm(){
  */
 function sendFile() {
     var file = $("#uploadFile")[0].files[0];
-    ws.send('file§${userId}§'+file.name+"§"+new Date().getTime());
+	//1.업로드할 file명 전송
+	d = new Date();
+    ws.send('upload§${userId}§'+file.name+"§"+d.getTime());
     
     var reader = new FileReader();
     var rawData = new ArrayBuffer();
-   
+
+	
+    reader.readAsArrayBuffer(file);
+    
     reader.onload = function(e) {
         rawData = e.target.result;//BinaryData
+		//2.파일전송
         ws.send(rawData);
         
         date = new Date();
-        ws.send('file§${userId}§end§'+date.getTime());//전송완료 알림
+        //3. 전송완료 알림(다른 클라이언트에서 전송하는 것은 이 마지막 단계)
+        ws.send('upload§${userId}§end§'+date.getTime());//전송완료 알림
 
-        //화면 출력시, 파일의 이미지여부에 따라 분기함.
-      	//사진파일인경우, 다른 FileReader를 이용해, 읽어옴.
+        //전송파일 내화면 출력하기
+        //파일의 이미지여부에 따라 분기함.
+      	//사진파일인경우, 다른 FileReader를 이용해, 읽어온후 이미지를 출력함.
         var ext = file.name.substring(file.name.lastIndexOf(".")+1).toLowerCase();
     	var bool = imgExt.indexOf(ext)>-1;//사진확장자 검사
     	if(bool) readFileAsDataURL(file); 
     	else writeHTML(false,file.name);
-    	
     }
-
-	reader.readAsArrayBuffer(file);
-	
 }
 
 /**
  * 파일전송후 전송된 파일이름(이미지파일인 경우에는 이미지태그)를 출력하는 함수
+ * 시각정보는 최초 파일을 업로드한 시각정보를 공유함(전역변수 d)
  */
 function writeHTML(bool, data){
 	/*내페이지에 작성하기*/
 	var html = '<div class="chat-msg chat-msg-from-me">';
-	html += '<span class="chat-msg-time">'+getTimeStr(date)+'</span>';
+	html += '<span class="chat-msg-time">'+getTimeStr(d)+'</span>';
 	if(bool)//사진파일인경우
     	html += '<img src="'+data+'" class="chat-msg-img">';
     else

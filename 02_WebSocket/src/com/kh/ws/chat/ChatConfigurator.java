@@ -17,7 +17,7 @@ import javax.websocket.server.ServerEndpointConfig.Configurator;
  *	2. HandshakeResponse : HttpServletResponse 역할.
  * 
  */
-public class HttpSessionConfigurator extends Configurator{
+public class ChatConfigurator extends Configurator{
 
 	@Override
     public void modifyHandshake(ServerEndpointConfig config, 

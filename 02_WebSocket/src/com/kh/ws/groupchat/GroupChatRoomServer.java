@@ -25,7 +25,7 @@ import javax.websocket.server.ServerEndpoint;
 import com.google.gson.Gson;
 
 //@pathParam뒤에 확장자 붙여 사용할 수 없음.
-@ServerEndpoint(value="/chat/{chatRoomId}", 
+@ServerEndpoint(value="/groupChat/{chatRoomId}", 
 		 configurator=GroupChatConfigurator.class)
 public class GroupChatRoomServer {
 	private File uploadFile = null;
