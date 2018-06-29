@@ -174,7 +174,7 @@ function onMessage(e){
 	}
 
 	//최신내용을 계속 보여주게 스크롤처리함.
-	$("#chat").scrollTop($("#chat").height());
+	scrollDown();
 }
 function onError(e){
 	alert("WebSocket Error Occured!");
@@ -212,7 +212,7 @@ function send(){
 	$("#msg").val("");
 
 	//최신내용을 계속 보여주게 스크롤처리함.
-	$("#chat").scrollTop($("#chat").height());
+	scrollDown();
 }
 
 
@@ -378,7 +378,7 @@ function writeHTML(bool, data){
 	$("#chat").append(html);
 	
 	//최신내용을 계속 보여주게 스크롤처리함.
-	$("#chat").scrollTop($("#chat").height());
+	scrollDown();
 	
 }
 
@@ -424,7 +424,17 @@ function saveFile(blob) {
     link.download = downloadFileName;
 
     link.click();
-};
+}
+/**
+ * 최신글을 노출되도록 계속 scroll-down 함수
+ * height() 혹은 css("height")함수등은 css파일등에 기술된 값을 가져오니 사용하지 말것.
+ * 
+ */
+function scrollDown() {      /* 최신글로 이동 */
+    
+    $('#chat').scrollTop($("#chat").prop('scrollHeight'));
+}
+
 </script>
 </body>
 </html>
