@@ -55,7 +55,7 @@ public class LoginServlet extends HttpServlet {
 		}
 		
 		if(flag==LOGINOK){
-			System.out.println("loginUser="+loginUser);
+			//System.out.println("loginUser="+loginUser);
 			request.getSession().setAttribute("loginUser", loginUser);
 			response.sendRedirect(request.getContextPath()+"/chat/groupChat.chat");
 		}

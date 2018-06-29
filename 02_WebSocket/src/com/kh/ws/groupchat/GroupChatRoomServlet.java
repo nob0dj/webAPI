@@ -3,11 +3,11 @@ package com.kh.ws.groupchat;
 import java.io.IOException;
 import java.util.Arrays;
 import java.util.HashMap;
-import java.util.List;
+import java.util.HashSet;
 import java.util.Map;
 import java.util.Random;
+import java.util.Set;
 
-import javax.servlet.ServletContext;
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
@@ -40,22 +40,52 @@ public class GroupChatRoomServlet extends HttpServlet {
 			return;
 		}
 		
-		//1.파라미터핸들링
-		String[] users = request.getParameterValues("user");
-		Map<String, Session> participants = new HashMap<>();
-		for (String userId : users) {
-			participants.put(userId, null);//아직 할당되지 않은 WebsocketSession을 null처리
+		String chatRoomId = request.getParameter("chatRoomId");
+		
+		if(chatRoomId==null){
+			//1.파라미터핸들링
+			String[] users = request.getParameterValues("user");
+			//컬렉션개체로 변환
+			//신규참여자를 컬렉션set개체로 변환.(배열=>list=>set)
+			Set<String> newParticipantsSet = new HashSet<>(Arrays.asList(users));
+			
+			//동일한 참여자를 가진 기존채팅방 존재여부검사
+			boolean alreadyExist = false;
+			//채팅방맵 구하기 : chatRoomId={userId=WebSocketSession}
+			Map<String, Map<String, Session>> chatRoomMap = GroupChatRoomServer.getChatRoomMap();
+			Set<String> keySet = chatRoomMap.keySet();
+			
+			for (String k : keySet) {
+				//기존채팅방의 참여자정보를 keyset메소드를 이용해 set객체로 생성
+				Set<String> existingParticipantsSet = chatRoomMap.get(k).keySet();
+//				System.out.println("existingSet="+existingParticipantsSet);
+//				System.out.println("newSet="+newParticipantsSet);
+				
+				if(existingParticipantsSet.size()==newParticipantsSet.size() 
+				&&  existingParticipantsSet.containsAll(newParticipantsSet)){
+					alreadyExist = true;
+					chatRoomId = k;//기존채팅방id를 대입함.
+					break;
+				}
+			}
+			
+			if(!alreadyExist){
+				Map<String, Session> participants = new HashMap<>();
+				for (String userId : users) {
+					participants.put(userId, null);//아직 할당되지 않은 WebsocketSession을 null처리
+				}
+				
+				//20자리 임의의 문자열 생성
+				chatRoomId = getRandomChatRoomId(20);
+
+				//기존chatRoomMap에 현재채팅방 추가
+				chatRoomMap.put(chatRoomId,participants);
+			}
+		
 		}
-		System.out.println("채팅참여자 : "+participants);
 		
-		String chatRoomId = getRandomChatRoomId(20);
-		System.out.println("charRoomId="+chatRoomId);
 		
-		//2.뷰모델 처리
-		//채팅방맵 구하기 : chatRoomId => {userId=WebSocketSession}
-		Map<String, Map<String, Session>> chatRoomMap = GroupChatRoomServer.getChatRoomMap();
-		chatRoomMap.put(chatRoomId,participants);
-		
+		//2.뷰모델 처리  
 		request.setAttribute("chatRoomId", chatRoomId);
 		request.getRequestDispatcher("/WEB-INF/views/chat/groupChatRoom.jsp")
 			   .forward(request, response);

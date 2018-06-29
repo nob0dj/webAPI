@@ -31,7 +31,11 @@
 		</option>
 		</c:forEach>
 	</select>
+	<button onclick="goChat();">GO</button>
+	<button onclick="leaveChat();">LEAVE</button>
+	
 	</c:if>
+	
 	<hr />
 	<h3>친구목록</h3>
 	<form id="newChatFrm" action="${pageContext.request.contextPath }/chat/groupChatRoom.chat" method="post">
@@ -52,6 +56,32 @@
 	</form>
 	<button onclick="goNewChat();">새 채팅 시작하기</button>
 <script>
+function leaveChat(){
+	var chatRoomId = $("#myChatRoomList").val();
+	if(chatRoomId=="") return;
+
+	$.ajax({
+		url:"${pageContext.request.contextPath}/chat/leaveGroupChat.chat",
+		data : {chatRoomId:chatRoomId, userId:"${loginUser.userId}"},
+		type : "post",
+		success : function(data){
+			//페이지 리로딩
+			history.go(0);
+		},
+		error : function(jqxhr,textStatus,errorThrown){
+			console.log("ajax처리실패",jqxhr,textStatus,errorThrown);
+			
+		}
+
+
+	});
+		
+}
+function goChat(){
+	var chatRoomId = $("#myChatRoomList").val();
+	if(chatRoomId=="") return;
+	location.href = "${pageContext.request.contextPath}/chat/groupChatRoom.chat?chatRoomId="+chatRoomId;
+}
 function goNewChat(){
 	if($("[name=user]:checked").length==0){
 		alert("한 명이상 선택하세요.");

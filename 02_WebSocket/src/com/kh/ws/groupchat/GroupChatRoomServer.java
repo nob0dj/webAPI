@@ -1,6 +1,11 @@
 package com.kh.ws.groupchat;
 
+import java.io.BufferedInputStream;
+import java.io.File;
+import java.io.FileInputStream;
+import java.io.FileOutputStream;
 import java.io.IOException;
+import java.nio.ByteBuffer;
 import java.util.Collection;
 import java.util.Collections;
 import java.util.Date;
@@ -23,7 +28,11 @@ import com.google.gson.Gson;
 @ServerEndpoint(value="/chat/{chatRoomId}", 
 		 configurator=GroupChatConfigurator.class)
 public class GroupChatRoomServer {
-	
+	private File uploadFile = null;
+    private String fileName = null;
+    private FileOutputStream fos = null;
+    final static String filePath="C:\\Users\\nobodj\\Dropbox\\Coding\\Git\\webAPI\\02_WebSocket\\WebContent\\upload\\chat";
+    
 	//현재접속한 WebSocketSession과 userId를 관리할 static필드(동기화처리 필수) 
 	private static Map<String, Map<String, Session>> chatRoomMap;
 
@@ -56,8 +65,8 @@ public class GroupChatRoomServer {
 		
 		//다른사용자에게 접속메세지 보냄(json문자열처리)
 		Map<String,Object> map = new HashMap<>();
-		map.put("type", "message");
-		map.put("msg", "["+currentUser+"]님이 접속했습니다.");
+		map.put("type", "welcome");
+		map.put("msg", "["+currentUser+"]님이 입장했습니다.");
 		map.put("sender", currentUser);
 		map.put("time", new Date().getTime());
 		onMessage(new Gson().toJson(map),session);
@@ -66,8 +75,54 @@ public class GroupChatRoomServer {
 	
 
 	@OnMessage
-    public void onMessage(String msg, Session session) throws IOException {
-		System.out.println("onMessage:"+msg);
+    public void onMessage(String jsonMsg, Session session) throws IOException {
+		System.out.println("onMessage:"+jsonMsg);
+		Map<String, Object> map = new Gson().fromJson(jsonMsg, Map.class);
+		String type = (String)map.get("type");
+		
+		if("upload".equals(type)){
+			String temp = (String)map.get("msg");
+			
+			if(!"end".equals(temp)){
+				fileName = temp;//파일명을 필드변수 fileName에 담아둠.
+				uploadFile = new File(filePath+File.separator+fileName);
+				fos = new FileOutputStream(uploadFile);
+				return;//다른 클라이언트에 전송하지 않고 종료.
+			}
+			else {
+				System.out.println(fileName+" 파일전송완료!");
+				
+				//file upload end메세지에서 end => fileName으로 수정후 처리 
+				map.put("msg", fileName);
+				jsonMsg = new Gson().toJson(map);
+			}
+		}
+		
+		if("download".equals(type)){
+			
+	        String fileName = (String)map.get("msg");
+	        System.out.println("파일다운로드요청 : " + fileName);
+
+	        // 파일 객체 생성
+	        File file = new File(filePath+File.separator+fileName);
+
+	        // 파일을 담을 바이트 배열
+	        byte[] fileBytes = new byte[(int)file.length()];
+	        
+	        // 파일로 연결된 스트림 생성
+	        BufferedInputStream bis = new BufferedInputStream(new FileInputStream(file));
+	        
+	        // 바이트 배열에 파일 저장
+	        bis.read(fileBytes);
+
+	        //바이트 배열을 ByteBuffer에 담는다
+	        ByteBuffer buf = ByteBuffer.wrap(fileBytes);
+
+	        // ByteBuffer 를 클라이언트로 보낸다.
+	        session.getBasicRemote().sendBinary(buf);
+			
+	        return;
+		}
 		
 		/*하나의 업무가 실행하는 동안 사용자변경이 일어나서는 안된다.
 		즉, NullPointerException을 방지하기 위해 동기화처리*/
@@ -78,9 +133,26 @@ public class GroupChatRoomServer {
 				
 				//메세지를 작성한 본인을 제외하고, 메세지를 보냄.
 				if(client!=null && !client.equals(session))
-					client.getBasicRemote().sendText(msg);
+					client.getBasicRemote().sendText(jsonMsg);
 		}
 	}
+	/**
+	 * 파일업로드 처리 onMessage 메소드
+	 * @param file
+	 * @param last
+	 * @param session
+	 */
+	@OnMessage
+	public void onFile(ByteBuffer file, boolean last, Session session) throws IOException {
+        System.out.println("Binary Data : file upload시작!!!");
+        
+        while(file.hasRemaining()) {         
+        	System.out.print(".");
+        	fos.write(file.get());
+
+        }
+
+    }
 	
 	@OnError
 	public void onError(Throwable e){
@@ -95,6 +167,14 @@ public class GroupChatRoomServer {
 		
 		//현재 userId에 할당된 WebSocketSession 제거
 		currentChatRoom.put(currentUser,null);
+		
+		//다른사용자에게 접속메세지 보냄(json문자열처리)
+		Map<String,Object> map = new HashMap<>();
+		map.put("type", "adieu");
+		map.put("msg", "["+currentUser+"]님이 퇴장했습니다.");
+		map.put("sender", currentUser);
+		map.put("time", new Date().getTime());
+		onMessage(new Gson().toJson(map),session);
 		
 		stat();
 	}

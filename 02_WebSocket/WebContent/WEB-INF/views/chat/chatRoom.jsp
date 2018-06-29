@@ -65,7 +65,7 @@
 		
 		<div class="type">
 			<div class="type-col">
-				<a href="javascript:openFile(sendFileConfirm);" class="btn-plus">
+				<a href="javascript:openFile();" class="btn-plus">
 					<img src="${pageContext.request.contextPath }/images/plus.png" alt="뒤로가기" />
 				</a>
 			</div>

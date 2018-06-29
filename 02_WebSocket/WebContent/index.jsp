@@ -11,16 +11,16 @@ div.input-container{display:none;}
 </style>
 </head>
 <body>
-	<h2>WebSocket</h2>
+	<h2>Hello WebSocket</h2>
 	<ol>
 		<li>
-			<a href="javascript:$('.input-container:eq(0)').show();">Hello, WebSocket</a>
+			<a href="javascript:$('.input-container:eq(0)').show();$('#userId').focus();">Hello, WebSocket</a>
 			<div class="input-container">
 				<input type="text" id="userId" placeholder="접속아이디" /> <button onclick="goChat();">접속</button>
 			</div>			
 		</li>
 		<li>
-			<a href="javascript:$('.input-container:eq(1)').show();">그룹채팅</a>
+			<a href="javascript:void(0);" onclick="$('.input-container:eq(1)').show().find(':text').focus();">그룹채팅</a>
 			<div class="input-container">
 				<form action="chat/login.chat" method="post">
 					<input type="text" name="userId" placeholder="아이디" /> <br /> 

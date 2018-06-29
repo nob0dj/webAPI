@@ -59,8 +59,12 @@ public class GroupChatServlet extends HttpServlet {
 			}
 		}
 		
-		request.setAttribute("userMap", UserMapSingletone.getUserMap());
+		//기존채팅방 입장을 위한 목록용
 		request.setAttribute("myChatRoomMap", myChatRoomMap);
+		//사용자아이디가 아닌 사용자이름으로 출력하기위한 맵객체
+		request.setAttribute("userMap", UserMapSingletone.getUserMap());
+
+        //신규채팅을 위한 사용자 목록용
 		request.setAttribute("userList", UserListSingletone.getInstance().getUserList());
 		request.getRequestDispatcher("/WEB-INF/views/chat/groupChat.jsp")
 			   .forward(request, response);

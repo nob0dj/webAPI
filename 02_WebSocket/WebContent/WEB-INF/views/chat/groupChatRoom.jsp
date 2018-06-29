@@ -18,7 +18,7 @@
 		  <a href="javascript:menuClose()" id="menu-close"><span style="font-size:30px;">&times;</span></a>
 		  <p>접속자수 : <span id="userCount">0</span>명</p>
 		  <div class="userList-container">
-		  	<ul></ul>
+		  	<ul></ul>	
 		  </div>
 		</div>
 		<!-- 사이드메뉴바 overlay -->
@@ -27,7 +27,7 @@
 		
 		<header>
 			<div class="header-col">
-				<a href="${pageContext.request.contextPath }" class="btn-back">
+				<a href="${pageContext.request.contextPath }/chat/groupChat.chat" class="btn-back">
 					<img src="${pageContext.request.contextPath }/images/back.png" alt="뒤로가기" />
 				</a>
 			</div>
@@ -42,9 +42,6 @@
 		</header>
 		
 		<div id="chat">
-		  <!-- <div class="date-divider">
-		    <span class="date-divider__text">Wednesday, August 2, 2017</span>
-		  </div> -->
 		  <div class="chat-msg chat-msg-from-me">
 		    <span class="chat-msg-time">17:55</span>
 		    <span class="chat-msg-body">
@@ -65,7 +62,7 @@
 		
 		<div class="type">
 			<div class="type-col">
-				<a href="javascript:openFile(sendFileConfirm);" class="btn-plus">
+				<a href="javascript:openFile();" class="btn-plus">
 					<img src="${pageContext.request.contextPath }/images/plus.png" alt="뒤로가기" />
 				</a>
 			</div>
@@ -129,11 +126,11 @@ function onMessage(e){
 		return;
 	}
 
-	var msgArr = e.data.split("§");
-	var type = msgArr[0];
-	var sender = msgArr[1];
-	var msg = msgArr[2];
-	var date = new Date(Number(msgArr[3]));//반드시 casting
+	var data = JSON.parse(e.data);
+	var type = data.type;
+	var sender = data.sender;
+	var msg = data.msg;
+	var date = new Date(Number(data.time));//반드시 casting
 	var time = getTimeStr(date);
 
 	if(type==="message"){
@@ -154,7 +151,7 @@ function onMessage(e){
 	else if(type==="adieu"){
 		$("#chat").append("<div class='divider'><span>["+sender+"]님이 퇴장하셨습니다.</span></div>");
 	}
-	else if(type==="file"){
+	else if(type==="upload"){
 	    var ext = msg.substring(msg.lastIndexOf(".")+1).toLowerCase();
 	    console.log("ext="+ext);
 		var bool = imgExt.indexOf(ext)>-1;//사진확장자 검사
@@ -203,7 +200,13 @@ function send(){
 	$("#chat").append(html);
 
 	//서버전송
-	ws.send("message§${userId}§"+msg+"§"+date.getTime());
+	var data = {
+			type : "message",
+			sender : "${loginUser.userName}",
+			msg : msg,
+			time : date.getTime()
+		}
+	ws.send(JSON.stringify(data));
 
 	//input#msg 초기화
 	$("#msg").val("");
@@ -241,21 +244,46 @@ function menuOpen() {
 
     //접속자명단 가져오기
     $.ajax({
-		url : "${pageContext.request.contextPath}/chat/getUserList.chat",
+		url : "${pageContext.request.contextPath}/groupChat/getUserList.chat",
+		data : {chatRoomId:"${chatRoomId}"},
+		dataType : "json",
 		success : function(data){
 			console.log(data);
-			var userList = data;
+
+			//간단버젼(참여자명단만 표시)
+			/* var userList = data;
 			var html = "";
 			for(var i in userList){
 				html += '<li><img src="${pageContext.request.contextPath }/images/default-avatar.png" class="chat-msg-avatar">';
 				html += '<h3>'+userList[i]+'</h3></li>';
 			}
+			$("#menu-sidebar p span").text(userList.length); */
+			
+
+			//접속여부포함버젼
+			var participants = data;
+			var html = "";
+			var total = 0;//전체채팅방인원
+			var count = 0;//현재접속자수
+			for(var key in participants){
+				html += '<li><img src="${pageContext.request.contextPath }/images/default-avatar.png" class="chat-msg-avatar">';
+				total++;
+				if(participants[key]){
+					html += '<h3>'+key+'</h3></li>';
+					count++;
+				}
+				else
+					html += '<h3><span style="color:lightgray">'+key+'</span></h3></li>';
+					
+			}
+			$("#menu-sidebar p span").text(count+"/"+total);
+
+
 			
 			$(".userList-container ul").html(html);
-			$("#menu-sidebar p span").text(userList.length);
 		},
-		error : function(){
-			console.log("ajax처리실패!");
+		error : function(jqxhr,textStatus,errorThrown){
+			console.log("ajax처리실패!",jqxhr,textStatus,errorThrown);
 		}
 	
     });
@@ -297,7 +325,13 @@ function sendFileConfirm(){
  */
 function sendFile() {
     var file = $("#uploadFile")[0].files[0];
-    ws.send('file§${userId}§'+file.name+"§"+new Date().getTime());
+    var data = {
+            type : "upload",
+            sender : "${userId}",
+            msg : file.name,
+            time : new Date().getTime()
+        }
+    ws.send(JSON.stringify(data));
     
     var reader = new FileReader();
     var rawData = new ArrayBuffer();
@@ -307,7 +341,14 @@ function sendFile() {
         ws.send(rawData);
         
         date = new Date();
-        ws.send('file§${userId}§end§'+date.getTime());//전송완료 알림
+      	//전송완료 알림
+        var data = {
+                type : "upload",
+                sender : "${userId}",
+                msg : "end",
+                time : date.getTime()
+            }
+        ws.send(JSON.stringify(data));
 
         //화면 출력시, 파일의 이미지여부에 따라 분기함.
       	//사진파일인경우, 다른 FileReader를 이용해, 읽어옴.
@@ -315,9 +356,8 @@ function sendFile() {
     	var bool = imgExt.indexOf(ext)>-1;//사진확장자 검사
     	if(bool) readFileAsDataURL(file); 
     	else writeHTML(false,file.name);
-    	
     }
-
+    
 	reader.readAsArrayBuffer(file);
 	
 }
@@ -362,7 +402,14 @@ function fileDownload(fileName){
 	console.log(fileName+"다운로드 요청");
 	//전역변수 downloadFileName에 파일명을 저장해둠.
 	downloadFileName = fileName;
-	ws.send("download§${userId}§"+fileName);
+
+    var data = {
+            type : "download",
+            sender : "${userId}",
+            msg : fileName,
+            time : new Date().getTime()
+        }
+    ws.send(JSON.stringify(data));
 }
 
 function saveFile(blob) {

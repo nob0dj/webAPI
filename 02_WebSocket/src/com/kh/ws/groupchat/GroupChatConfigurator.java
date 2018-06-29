@@ -34,7 +34,7 @@ public class GroupChatConfigurator extends Configurator{
         
         config.getUserProperties().put("userId",loginUser.getUserId());
         
-        System.out.println("config : "+config.getUserProperties());
+        //System.out.println("config : "+config.getUserProperties());
 
 	}
 	
