@@ -43,7 +43,7 @@
 		
 		<div id="chat">
 		  <!-- 테스트메세지 -->
-		  <div class="chat-msg chat-msg-from-me">
+		  <%-- <div class="chat-msg chat-msg-from-me">
 		    <span class="chat-msg-time">17:55</span>
 		    <span class="chat-msg-body">
 		      안녕하세요, 내가 보낸 테스트메세지입니다.
@@ -58,8 +58,9 @@
 		      </span>
 		    </div>
 		    <span class="chat-msg-time">19:35</span>
-		  </div>
-		</div><!-- end of #chat -->
+		  </div>--%>
+		</div> 
+		<!-- end of #chat -->
 		
 		<div class="type">
 			<div class="type-col">
@@ -175,7 +176,7 @@ function onMessage(e){
 	}
 
 	//최신내용을 계속 보여주게 스크롤처리함.
-	$("#chat").scrollTop($("#chat").height());
+	scrollDown();
 }
 function onError(e){
 	//alert("WebSocket Error Occured!");
@@ -209,7 +210,7 @@ function send(){
 	$("#msg").val("");
 
 	//최신내용을 계속 보여주게 스크롤처리함.
-	$("#chat").scrollTop($("#chat").height());
+	scrollDown();
 }
 
 
@@ -343,7 +344,7 @@ function writeHTML(bool, data){
 	$("#chat").append(html);
 	
 	//최신내용을 계속 보여주게 스크롤처리함.
-	$("#chat").scrollTop($("#chat").height());
+	scrollDown();
 	
 }
 
@@ -383,6 +384,11 @@ function saveFile(blob) {
 
     link.click();
 };
+function scrollDown() {      /* 최신글로 이동 */
+    
+    $('#chat').scrollTop($("#chat").prop('scrollHeight'));
+}
+
 </script>
 </body>
 </html>
