@@ -1,0 +1,168 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>IndexedDB</title>
+
+<script src="https://code.jquery.com/jquery-3.3.1.min.js"
+        integrity="sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8="
+        crossorigin="anonymous"></script>
+<script src="indexedDB.js"></script>
+<!-- <script src="indexedDB.autoIncrement.js"></script> -->
+
+<style>
+div#resultSet{
+    padding : 10px;
+}
+table#rset{
+    border: 1px solid;
+    border-collapse: collapse;
+}
+table#rset th, table#rset td {
+    border: 1px solid;
+}
+input:read-only{
+    background-color: lightgray;
+}
+</style>
+</head>
+<body>
+    <!-- 전체조회 -->
+    <input type="button" id="btnSelectAll" value="전체검색">&nbsp;&nbsp;
+    <!-- 인덱스조회 -->
+    <select id="selectIdx">
+        <option value="" disabled selected>색인선택</option>
+        <option value="idx_name">이름</option>
+        <option value="idx_email">이메일</option>
+    </select>
+    <input type="search" id="searchIdx">
+    <input type="button" id="btnSearchIdx" value="인덱스조회">
+
+    <div id="resultSet"></div>
+
+    <hr>
+
+    <!-- 아이디조회 -->
+    <label for="searchMemberId">memberId검색(key) : </label>
+    <input type="search" id="searchMemberId">
+    <input type="button" id="btnSelectOne" value="검색">
+    <fieldset>
+        <legend>회원정보</legend>
+        <form action="">
+            <table>
+                <tr>
+                    <td><label for="memberId">아이디</label></td>
+                    <td><input type="text" id="memberId"></td>
+                </tr>
+                <tr>
+                    <td><label for="name">이름</label></td>
+                    <td><input type="text" id="name"></td>
+                </tr>
+                <tr>
+                    <td><label for="email">이메일</label></td>
+                    <td><input type="email" id="email"></td>
+                </tr>
+            </table>
+            <input type="reset" id="btnReset" value="초기화">
+            <input type="button" id="btnInsert" value="회원가입">
+            <input type="button" id="btnUpdte" value="수정">
+            <input type="button" id="btnDelete" value="삭제">
+        </form>
+    </fieldset>
+<script>
+$("#btnSelectOne").click(()=>{
+    selectOne($("#searchMemberId").val());
+});
+$("#btnSelectAll").click(()=>{
+    makeTable();
+    selectAll();
+});
+$("#btnSearchIdx").click(()=>{
+    makeTable();
+    selectByIndex($("#selectIdx option:selected").val(), $("#searchIdx").val());
+});
+$("#btnReset").click(() => {
+    $("#memberId").removeAttr("readonly");
+});
+$("#btnInsert").click(()=>{
+    var memberId = $("#memberId").val();
+    var name = $("#name").val();
+    var email = $("#email").val();
+
+    //유효성검사
+    if(memberId=='' || name =='' || email==''){
+        alert('필수정보를 입력하세요.')
+        return;
+    }
+
+    //회원추가
+    insertMember(new Member(memberId, name, email));
+    
+    //초기화
+    $("#memberId").val('');
+    $("#name").val('');
+    $("#email").val('');
+
+});
+$("#btnUpdte").click(()=>{
+    var memberId = $("#memberId").val();
+    var name = $("#name").val();
+    var email = $("#email").val();
+
+    //유효성검사
+    if(name =='' || email==''){
+        alert('필수정보를 입력하세요.')
+        return;
+    }
+
+    //회원추가
+    updateMember(new Member(memberId, name, email));
+    
+});
+$("#btnDelete").click(()=>{
+    deleteMember($("#memberId").val());
+    //초기화
+    $("#memberId").removeAttr("readonly").val('');
+    $("#name").val('');
+    $("#email").val('');
+});
+
+
+
+/**
+ * table#rset 생성함수
+ */
+function makeTable(){
+    var table = $("<table id='rset'></table>");
+    var tr = $("<tr></tr>");
+    tr.append($("<th>memberId</th>"))
+      .append($("<th>name</th>"))
+      .append($("<th>email</th>"))
+      .appendTo(table);
+    $("#resultSet").empty().append(table);
+
+    return table;
+}
+
+/**
+ * 조회된 데이터를 전달하고 table에 행을 추가하는 함수
+ */
+function addDataRow(member){
+    var table = $("table#rset");
+    var tr = $("<tr></tr>");
+
+    if(member == undefined){
+        tr.append($("<td colspan='3'>데이터가 없습니다.</td>"))
+          .appendTo(table);
+    }
+    else{
+        tr.append($("<td>"+member.memberId+"</td>"))
+          .append($("<td>"+member.name+"</td>"))
+          .append($("<td>"+member.email+"</td>"))
+          .appendTo(table);
+    }
+}
+
+</script>
+</body>
+</html>
