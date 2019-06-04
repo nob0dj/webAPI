@@ -78,7 +78,7 @@ public class GroupChatRoomServlet extends HttpServlet {
 				//20자리 임의의 문자열 생성
 				chatRoomId = getRandomChatRoomId(20);
 
-				//기존chatRoomMap에 현재채팅방 추가
+				//기존chatRoomMap에 현재채팅방 추가x	
 				chatRoomMap.put(chatRoomId,participants);
 			}
 		

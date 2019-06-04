@@ -61,7 +61,7 @@ public class HelloWebSocket {
 	 */
 	@OnMessage
 	public void onMessage(String msg, Session session) throws IOException{
-		System.out.println("[서버가 받은 메세지} : "+msg);
+		System.out.println("[서버가 받은 메세지] : "+msg);
 		String[] msgArr = msg.split("§");
 		String type = msgArr[0];//welcome | adieu | message | file
 		
@@ -82,7 +82,7 @@ public class HelloWebSocket {
 			}
 		}
 		
-if("download".equals(type)){
+		if("download".equals(type)){
 			
 	        String fileName = msgArr[2];
 	        System.out.println("파일다운로드요청 : " + fileName);

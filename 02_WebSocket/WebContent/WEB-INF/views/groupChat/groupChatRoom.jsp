@@ -63,13 +63,13 @@
 		<div class="type">
 			<div class="type-col">
 				<a href="javascript:openFile();" class="btn-plus">
-					<img src="${pageContext.request.contextPath }/images/plus.png" alt="뒤로가기" />
+					<img src="${pageContext.request.contextPath }/images/plus.png" />
 				</a>
 			</div>
 			<div class="type-col">
  				<input type="text" id="msg" onkeyup="enterKey(event);" />
 				<a href="javascript:send();" class="btn-send">
-					<img src="${pageContext.request.contextPath }/images/send.png" alt="뒤로가기" />
+					<img src="${pageContext.request.contextPath }/images/send.png"/>
 				</a>
 			</div>
 		</div><!-- end of .type -->
