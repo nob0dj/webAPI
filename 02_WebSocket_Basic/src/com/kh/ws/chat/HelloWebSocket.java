@@ -59,11 +59,11 @@ public class HelloWebSocket {
             	 if("adieu".equals(type) && client.equals(session))
             		 continue;
             	 
-            		 try {
-						client.getBasicRemote().sendText(msg);
-					} catch (IOException e) {
-						e.printStackTrace();
-					}
+        		 try {
+					client.getBasicRemote().sendText(msg);
+				} catch (IOException e) {
+					e.printStackTrace();
+				}
              }
                  
          }

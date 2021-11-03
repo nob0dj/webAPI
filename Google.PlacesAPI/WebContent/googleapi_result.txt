@@ -1,0 +1,892 @@
+{
+   "html_attributions" : [],
+   "next_page_token" : "CpQCCAEAAGzcDNtiCyK0LgpXx0sWmwwKN4Mw0pLv8fH-XhaHHdrSSR4MM6tqALm0TtCZniSebvl_qw37D5KF-HrW_69UkDtFqtoXKLUCK0uEOXcGoYXhCEE8TwVjZ-rNnYGWr1YU4GkWaFChfpFLu8jMWqvTXMlOkX76Oa-E_qifiL0mbZy9Mn5_1Z46NZM_A4MVLutBuXcxf8s4odiBNcukIfnax_guxJMJ5YuNDGqR0V0kEqUhKGpx7SCzouOas7i2mjhdJRMYk9Il7DdN9igWHsn2fFWMO195IV2KSDjQiWisqE6I0OLS-vOpyoSGVeE0cb5NZ9T9Xsp3kE7f1CBQMpYM0VeTGEG9XlMTcJGSqHi0nNCuEhCILcMsXFL9AC-19mGn57e4GhSbMYmdxgbxea2whSwXfPsjZg2XDg",
+   "results" : [
+      {
+         "formatted_address" : "South Korea, Seoul, Gwanak-gu, Bongcheon-dong, Nambusunhwan-ro 226-gil, 36 2층",
+         "geometry" : {
+            "location" : {
+               "lat" : 37.4790279,
+               "lng" : 126.9535036
+            },
+            "viewport" : {
+               "northeast" : {
+                  "lat" : 37.48037772989272,
+                  "lng" : 126.9548534298927
+               },
+               "southwest" : {
+                  "lat" : 37.47767807010727,
+                  "lng" : 126.9521537701073
+               }
+            }
+         },
+         "icon" : "https://maps.gstatic.com/mapfiles/place_api/icons/restaurant-71.png",
+         "id" : "30d1b9c1f3a30580906b703f7397e08f19cbbb9c",
+         "name" : "모힝 서울대입구점 Ristorante italiano",
+         "opening_hours" : {
+            "open_now" : true
+         },
+         "photos" : [
+            {
+               "height" : 3024,
+               "html_attributions" : [
+                  "\u003ca href=\"https://maps.google.com/maps/contrib/106871891991008445582\"\u003eSeok Kyun Yoo\u003c/a\u003e"
+               ],
+               "photo_reference" : "CmRaAAAA7sQ-LYpQedOn7E671n08SOPnS_g3-41kpyCO5u-8Q7XY5SQ5AHY0cY0vklutl4SgTn5cVTffqSOg6nWAkDf1nKfhKCA1-KFIOSf4qePHYmQP0gopVTzz7KO1XJTA5B2eEhABU3HF_gtthAi07ufnAntnGhSFSEricCD01YAEh6udNPOAH60yYA",
+               "width" : 4032
+            }
+         ],
+         "place_id" : "ChIJNZVr5YmffDURabuTfN6QMj4",
+         "plus_code" : {
+            "compound_code" : "FXH3+JC Seoul, 서울특별시",
+            "global_code" : "8Q98FXH3+JC"
+         },
+         "rating" : 4.2,
+         "reference" : "ChIJNZVr5YmffDURabuTfN6QMj4",
+         "types" : [ "restaurant", "food", "point_of_interest", "establishment" ],
+         "user_ratings_total" : 302
+      },
+      {
+         "formatted_address" : "South Korea, Seoul, Gwanak-gu, Jungang-dong, Nambusunhwan-ro, 1801 벽송빌딩 2층",
+         "geometry" : {
+            "location" : {
+               "lat" : 37.4818013,
+               "lng" : 126.9503522
+            },
+            "viewport" : {
+               "northeast" : {
+                  "lat" : 37.48315112989272,
+                  "lng" : 126.9517020298927
+               },
+               "southwest" : {
+                  "lat" : 37.48045147010728,
+                  "lng" : 126.9490023701073
+               }
+            }
+         },
+         "icon" : "https://maps.gstatic.com/mapfiles/place_api/icons/restaurant-71.png",
+         "id" : "3979757ced95f9bf542c078451aca282ac38cbc7",
+         "name" : "외래향 中餐厅",
+         "opening_hours" : {
+            "open_now" : true
+         },
+         "photos" : [
+            {
+               "height" : 3016,
+               "html_attributions" : [
+                  "\u003ca href=\"https://maps.google.com/maps/contrib/111781626909434988473\"\u003e그리스\u003c/a\u003e"
+               ],
+               "photo_reference" : "CmRaAAAA8dYh246dzlyDTLBRKuLWVacYmEzEYHMALy5DrlX6qyPOh6dlBNbwcseEK96pSp1GPPF821uxVXI2uvpGJZ1qoKHrmEr4Yi9h9ww4k2iYoAMvMLW8Ft0D-HjvVOpPcTZmEhAE9qkUwHsZkcpwaJrDlHJsGhS4zMJw-9HyYgNz8A2Nsq4YCwaMSg",
+               "width" : 4032
+            }
+         ],
+         "place_id" : "ChIJHfgbHomffDURuRiDX1xcu5Q",
+         "plus_code" : {
+            "compound_code" : "FXJ2+P4 Seoul, 서울특별시",
+            "global_code" : "8Q98FXJ2+P4"
+         },
+         "price_level" : 2,
+         "rating" : 4,
+         "reference" : "ChIJHfgbHomffDURuRiDX1xcu5Q",
+         "types" : [ "restaurant", "food", "point_of_interest", "establishment" ],
+         "user_ratings_total" : 581
+      },
+      {
+         "formatted_address" : "South Korea, Seoul, Gwanak-gu, Bongcheon-dong, 남부순환로 1829-6",
+         "geometry" : {
+            "location" : {
+               "lat" : 37.4813076,
+               "lng" : 126.9537171
+            },
+            "viewport" : {
+               "northeast" : {
+                  "lat" : 37.48265742989272,
+                  "lng" : 126.9550669298927
+               },
+               "southwest" : {
+                  "lat" : 37.47995777010728,
+                  "lng" : 126.9523672701073
+               }
+            }
+         },
+         "icon" : "https://maps.gstatic.com/mapfiles/place_api/icons/restaurant-71.png",
+         "id" : "c9d6f621d827c8c08ebfcc2c7f03d1d7edf5756b",
+         "name" : "Sammiog",
+         "opening_hours" : {
+            "open_now" : true
+         },
+         "photos" : [
+            {
+               "height" : 4032,
+               "html_attributions" : [
+                  "\u003ca href=\"https://maps.google.com/maps/contrib/105190766516711969853\"\u003e이근우\u003c/a\u003e"
+               ],
+               "photo_reference" : "CmRaAAAAm9nI2yWHtFYj3DWRaMG92ocJ4iU1pBlSm4caTu0bgdYr1nhLntvTxEK4RI55y5XtypAbkKy2VuHy6xyROJpu94Swu8Myi3nXWnLHlzJKjv3CzmyqsV5JLrFfYmSTtLKjEhA_g_SczAXx7pDU_Zs6O-eZGhSHAa7cpJBjlayJPmWv7Rwf933tiA",
+               "width" : 3024
+            }
+         ],
+         "place_id" : "ChIJa5MyJIiffDURWSCgTergOHE",
+         "plus_code" : {
+            "compound_code" : "FXJ3+GF Seoul, 서울특별시",
+            "global_code" : "8Q98FXJ3+GF"
+         },
+         "price_level" : 2,
+         "rating" : 3.9,
+         "reference" : "ChIJa5MyJIiffDURWSCgTergOHE",
+         "types" : [ "restaurant", "food", "point_of_interest", "establishment" ],
+         "user_ratings_total" : 292
+      },
+      {
+         "formatted_address" : "1598-23 Bongcheon-dong, Gwanak-gu, Seoul, South Korea",
+         "geometry" : {
+            "location" : {
+               "lat" : 37.4781869,
+               "lng" : 126.9527741
+            },
+            "viewport" : {
+               "northeast" : {
+                  "lat" : 37.47953672989272,
+                  "lng" : 126.9541239298927
+               },
+               "southwest" : {
+                  "lat" : 37.47683707010728,
+                  "lng" : 126.9514242701073
+               }
+            }
+         },
+         "icon" : "https://maps.gstatic.com/mapfiles/place_api/icons/restaurant-71.png",
+         "id" : "5f7112df7520191d01fa91380ebd07c2c2a1ba19",
+         "name" : "Jigudang",
+         "opening_hours" : {
+            "open_now" : true
+         },
+         "photos" : [
+            {
+               "height" : 3024,
+               "html_attributions" : [
+                  "\u003ca href=\"https://maps.google.com/maps/contrib/104736035551868932599\"\u003eA Google User\u003c/a\u003e"
+               ],
+               "photo_reference" : "CmRaAAAA164wVulkQfyIn5VdOwtaFkP3sTAamTATtjCWOra-hcTmms9uRV9xtqNx8tynhhUflbijdVSEnQNButsMQyjpRPj553K9Nz15RcvVLhfrxfx_c-rDYPJXr01bZ5YLud-qEhAfjYDqg-f4ZymGWYApEfKHGhR3lw_0d9EeycyWy9wu8W18bkKH-w",
+               "width" : 4032
+            }
+         ],
+         "place_id" : "ChIJj_B4IoqffDURsPmzMVF33T0",
+         "plus_code" : {
+            "compound_code" : "FXH3+74 Seoul, 서울특별시",
+            "global_code" : "8Q98FXH3+74"
+         },
+         "price_level" : 1,
+         "rating" : 4.1,
+         "reference" : "ChIJj_B4IoqffDURsPmzMVF33T0",
+         "types" : [ "restaurant", "food", "point_of_interest", "establishment" ],
+         "user_ratings_total" : 310
+      },
+      {
+         "formatted_address" : "195 Gwanak-ro, Jungang-dong, Gwanak-gu, Seoul, South Korea",
+         "geometry" : {
+            "location" : {
+               "lat" : 37.4823872,
+               "lng" : 126.9530682
+            },
+            "viewport" : {
+               "northeast" : {
+                  "lat" : 37.48373702989272,
+                  "lng" : 126.9544180298927
+               },
+               "southwest" : {
+                  "lat" : 37.48103737010727,
+                  "lng" : 126.9517183701072
+               }
+            }
+         },
+         "icon" : "https://maps.gstatic.com/mapfiles/place_api/icons/restaurant-71.png",
+         "id" : "f83b03c21c08374d5c01b57d256f790184c74e73",
+         "name" : "Nature Kitchen Seoul University Entrance",
+         "opening_hours" : {
+            "open_now" : true
+         },
+         "photos" : [
+            {
+               "height" : 3024,
+               "html_attributions" : [
+                  "\u003ca href=\"https://maps.google.com/maps/contrib/102862379824086512459\"\u003eYoung Cho\u003c/a\u003e"
+               ],
+               "photo_reference" : "CmRaAAAAET52MvDTfwazKvx2CeOlYKR-ek9d0UPUjA-6v_Lhj3PqpuBDEEECvnExgljytEGj6Fq5dEuOd317y7GvgAY5_iFnpm-j0Q_8FN44ZUP_5awpAtiQLWU8qU3d6giX5KU-EhDKfJShquOEwB4BnoXSqYInGhT0XmPUIt0xOSodqchCTCKUSWNysw",
+               "width" : 4032
+            }
+         ],
+         "place_id" : "ChIJwfwiBoiffDURiXM03CNrk1s",
+         "plus_code" : {
+            "compound_code" : "FXJ3+X6 Seoul, 서울특별시",
+            "global_code" : "8Q98FXJ3+X6"
+         },
+         "price_level" : 2,
+         "rating" : 3.7,
+         "reference" : "ChIJwfwiBoiffDURiXM03CNrk1s",
+         "types" : [ "restaurant", "food", "point_of_interest", "establishment" ],
+         "user_ratings_total" : 915
+      },
+      {
+         "formatted_address" : "35 Gwanak-ro 14-gil, Bongcheon-dong, Gwanak-gu, Seoul, South Korea",
+         "geometry" : {
+            "location" : {
+               "lat" : 37.4789211,
+               "lng" : 126.954465
+            },
+            "viewport" : {
+               "northeast" : {
+                  "lat" : 37.48027092989273,
+                  "lng" : 126.9558148298927
+               },
+               "southwest" : {
+                  "lat" : 37.47757127010728,
+                  "lng" : 126.9531151701073
+               }
+            }
+         },
+         "icon" : "https://maps.gstatic.com/mapfiles/place_api/icons/restaurant-71.png",
+         "id" : "2fe27244838aae973980826d41f8ab35ece6fa62",
+         "name" : "Tendong Yotsuya",
+         "opening_hours" : {
+            "open_now" : true
+         },
+         "photos" : [
+            {
+               "height" : 3024,
+               "html_attributions" : [
+                  "\u003ca href=\"https://maps.google.com/maps/contrib/115463892336793172518\"\u003e이상배\u003c/a\u003e"
+               ],
+               "photo_reference" : "CmRaAAAAfqW8vGenlGDfzcTCxwnDIxA3j4hGurK4Qfq_-pcpt9Vle3Ij18lSXWOzZT8_Ch1vswH9CzMmwg46FcA5PJfVpyevV1_B5osi_j_6t-D--G3bhI_lbmVg9F6DbRHYw_ROEhCij7s7zwaMYlzDbFP9-Lc1GhS4EyUa9E-9JBkMJTi34QC8ATINlA",
+               "width" : 3024
+            }
+         ],
+         "place_id" : "ChIJiUmE4SagfDUR1GJXXCb2sMs",
+         "plus_code" : {
+            "compound_code" : "FXH3+HQ Seoul, 서울특별시",
+            "global_code" : "8Q98FXH3+HQ"
+         },
+         "price_level" : 3,
+         "rating" : 4.3,
+         "reference" : "ChIJiUmE4SagfDUR1GJXXCb2sMs",
+         "types" : [ "restaurant", "food", "point_of_interest", "establishment" ],
+         "user_ratings_total" : 932
+      },
+      {
+         "formatted_address" : "861-11 Bongcheon-dong, Gwanak-gu, Seoul, South Korea",
+         "geometry" : {
+            "location" : {
+               "lat" : 37.4816836,
+               "lng" : 126.9525855
+            },
+            "viewport" : {
+               "northeast" : {
+                  "lat" : 37.48303342989272,
+                  "lng" : 126.9539353298927
+               },
+               "southwest" : {
+                  "lat" : 37.48033377010727,
+                  "lng" : 126.9512356701073
+               }
+            }
+         },
+         "icon" : "https://maps.gstatic.com/mapfiles/place_api/icons/restaurant-71.png",
+         "id" : "f3e1374d6de5b2f6136db1aa4364cc9316674633",
+         "name" : "Jijunghae",
+         "opening_hours" : {
+            "open_now" : true
+         },
+         "photos" : [
+            {
+               "height" : 3024,
+               "html_attributions" : [
+                  "\u003ca href=\"https://maps.google.com/maps/contrib/106690310675737308256\"\u003e김현덕\u003c/a\u003e"
+               ],
+               "photo_reference" : "CmRaAAAAOyEkjOQOkJjTi0h9WWStbxgq0UNuYaEoJYnJfXc4ZYp_3aCJZJ214Ao-x659sgSaK0cxlXVdUhxyMjMLhWL1iAp7n-Kvr7C5fEM6JBWeXjOi5t8R4yWCi47E4ac2A86qEhDFFHnhx52ij3mmoPNIoSoBGhRKYPx7GEATosvU8a-PIwg9UoHoPA",
+               "width" : 4032
+            }
+         ],
+         "place_id" : "ChIJ0ZKrR4iffDURqr0QFbfMrPU",
+         "plus_code" : {
+            "compound_code" : "FXJ3+M2 Seoul, 서울특별시",
+            "global_code" : "8Q98FXJ3+M2"
+         },
+         "rating" : 4.2,
+         "reference" : "ChIJ0ZKrR4iffDURqr0QFbfMrPU",
+         "types" : [ "restaurant", "food", "point_of_interest", "establishment" ],
+         "user_ratings_total" : 54
+      },
+      {
+         "formatted_address" : "77 Gwanak-ro 14-gil, Bongcheon-dong, Gwanak-gu, Seoul, South Korea",
+         "geometry" : {
+            "location" : {
+               "lat" : 37.4783545,
+               "lng" : 126.9567307
+            },
+            "viewport" : {
+               "northeast" : {
+                  "lat" : 37.47970432989273,
+                  "lng" : 126.9580805298927
+               },
+               "southwest" : {
+                  "lat" : 37.47700467010728,
+                  "lng" : 126.9553808701073
+               }
+            }
+         },
+         "icon" : "https://maps.gstatic.com/mapfiles/place_api/icons/restaurant-71.png",
+         "id" : "c3686b22dba47b95630e3c0498e89c921985fbf3",
+         "name" : "Doridori hajji",
+         "opening_hours" : {
+            "open_now" : true
+         },
+         "photos" : [
+            {
+               "height" : 3024,
+               "html_attributions" : [
+                  "\u003ca href=\"https://maps.google.com/maps/contrib/103609949465380317323\"\u003eKyungmin Kim\u003c/a\u003e"
+               ],
+               "photo_reference" : "CmRaAAAA42K5F6PXlxGs-8DZb0PXqj29svgnrZh2hVt2RLLS1qMRwCM6Eb8AMRJig5wYEWnuw3O1LQpRq1pdlHjmrmVlEh-9pNEHJs1e_UyWMS9U-22nLR8vHTeB3cMYwD62yp4JEhATvGD91ubfPR5ODwFSfPhhGhSBjDjpRCxqSbQZkvujuOxNB0PdJA",
+               "width" : 4032
+            }
+         ],
+         "place_id" : "ChIJ09f1HyegfDURaq3y7iovmME",
+         "plus_code" : {
+            "compound_code" : "FXH4+8M Seoul, 서울특별시",
+            "global_code" : "8Q98FXH4+8M"
+         },
+         "rating" : 3.6,
+         "reference" : "ChIJ09f1HyegfDURaq3y7iovmME",
+         "types" : [ "restaurant", "food", "point_of_interest", "establishment" ],
+         "user_ratings_total" : 190
+      },
+      {
+         "formatted_address" : "98 Gwanak-ro 14-gil, Nakseongdae-dong, Gwanak-gu, Seoul, South Korea",
+         "geometry" : {
+            "location" : {
+               "lat" : 37.4777646,
+               "lng" : 126.9577847
+            },
+            "viewport" : {
+               "northeast" : {
+                  "lat" : 37.47911442989273,
+                  "lng" : 126.9591345298927
+               },
+               "southwest" : {
+                  "lat" : 37.47641477010729,
+                  "lng" : 126.9564348701073
+               }
+            }
+         },
+         "icon" : "https://maps.gstatic.com/mapfiles/place_api/icons/restaurant-71.png",
+         "id" : "71be16d63d886dc4c137f8cd50edc520ad0fce9d",
+         "name" : "Eggthumb",
+         "opening_hours" : {
+            "open_now" : true
+         },
+         "photos" : [
+            {
+               "height" : 3024,
+               "html_attributions" : [
+                  "\u003ca href=\"https://maps.google.com/maps/contrib/105614022040077706810\"\u003eSungmin Kim\u003c/a\u003e"
+               ],
+               "photo_reference" : "CmRaAAAA9xKmaf7mFQpZw23qfzPCa4VSB_3sFMgXyRpOexDyXaQv-H4g8-KXGLl7bNf5YXQtpMFEBVmfh2DQuiVu05OkjJ5hWDKGa5zh6TZ63tA5xBK3zYAKjnbSHx-7Ed9cnHOGEhBhQyYsjwMKgd1zJafeVmtlGhS9E925M9KQwbu8i-voSBIOhCRKBA",
+               "width" : 4032
+            }
+         ],
+         "place_id" : "ChIJJ7TewyagfDURleAtyiU2R1k",
+         "plus_code" : {
+            "compound_code" : "FXH5+44 Seoul, 서울특별시",
+            "global_code" : "8Q98FXH5+44"
+         },
+         "price_level" : 2,
+         "rating" : 4,
+         "reference" : "ChIJJ7TewyagfDURleAtyiU2R1k",
+         "types" : [ "restaurant", "food", "point_of_interest", "establishment" ],
+         "user_ratings_total" : 244
+      },
+      {
+         "formatted_address" : "858-2 Haengun-dong, Gwanak-gu, Seoul, South Korea",
+         "geometry" : {
+            "location" : {
+               "lat" : 37.4816345,
+               "lng" : 126.9535927
+            },
+            "viewport" : {
+               "northeast" : {
+                  "lat" : 37.48298432989272,
+                  "lng" : 126.9549425298927
+               },
+               "southwest" : {
+                  "lat" : 37.48028467010727,
+                  "lng" : 126.9522428701072
+               }
+            }
+         },
+         "icon" : "https://maps.gstatic.com/mapfiles/place_api/icons/restaurant-71.png",
+         "id" : "56c3a4b151b1a364f207a71bcca193e4869421d3",
+         "name" : "Wansanjeong",
+         "opening_hours" : {
+            "open_now" : true
+         },
+         "photos" : [
+            {
+               "height" : 4032,
+               "html_attributions" : [
+                  "\u003ca href=\"https://maps.google.com/maps/contrib/100778746421489300967\"\u003eJunyeon Lee\u003c/a\u003e"
+               ],
+               "photo_reference" : "CmRaAAAAbgRm4EzGp3bEc7Stk2ImnfgnIjOBOqaD26x-N1f_G-Sra-wizDxpWPUHjUFPBTQy_Y5oD-bSf7GITIW2K-ZNXlE29YNbLkjocs0FKEUjYhFEacZmgYfBBkGB-I1ltYZPEhB3k_lFaFyD1NfyjcZWE9SxGhTFNPGir2PzqS-h9jryXxQU6JF7Hg",
+               "width" : 3024
+            }
+         ],
+         "place_id" : "ChIJ8eQLI4iffDURrKFDDEqf1fo",
+         "plus_code" : {
+            "compound_code" : "FXJ3+MC Seoul, 서울특별시",
+            "global_code" : "8Q98FXJ3+MC"
+         },
+         "rating" : 3.9,
+         "reference" : "ChIJ8eQLI4iffDURrKFDDEqf1fo",
+         "types" : [ "restaurant", "food", "point_of_interest", "establishment" ],
+         "user_ratings_total" : 232
+      },
+      {
+         "formatted_address" : "1613-4 Bongcheon-dong, Gwanak-gu, Seoul, South Korea",
+         "geometry" : {
+            "location" : {
+               "lat" : 37.4783172,
+               "lng" : 126.9560743
+            },
+            "viewport" : {
+               "northeast" : {
+                  "lat" : 37.47966702989272,
+                  "lng" : 126.9574241298927
+               },
+               "southwest" : {
+                  "lat" : 37.47696737010728,
+                  "lng" : 126.9547244701073
+               }
+            }
+         },
+         "icon" : "https://maps.gstatic.com/mapfiles/place_api/icons/restaurant-71.png",
+         "id" : "569ef7124e750101c39812560af5373cd1bae2b4",
+         "name" : "The Melting Pot",
+         "opening_hours" : {
+            "open_now" : true
+         },
+         "photos" : [
+            {
+               "height" : 3024,
+               "html_attributions" : [
+                  "\u003ca href=\"https://maps.google.com/maps/contrib/115023347910023029448\"\u003eHN JO\u003c/a\u003e"
+               ],
+               "photo_reference" : "CmRaAAAAqg1mG7RHEj42B1vUDxSZgqG77nVp-Z5wKlLsh97sSazENW0S0XM-1mT8xHh6VMjKMJlZ-Pgito2XpYCAGI3--wU2oIWIzqJoQUzPT1OVjW4kU1BJPzRa5vV5XJ4Fvp5cEhCq5H_K4KyXhy4e_4Tg1wyiGhQJzrfrqnzTnVow0yhrKBpJFRpwhw",
+               "width" : 4032
+            }
+         ],
+         "place_id" : "ChIJ1cKlPCegfDURfhhh826nj_I",
+         "plus_code" : {
+            "compound_code" : "FXH4+8C Seoul, 서울특별시",
+            "global_code" : "8Q98FXH4+8C"
+         },
+         "price_level" : 2,
+         "rating" : 4.2,
+         "reference" : "ChIJ1cKlPCegfDURfhhh826nj_I",
+         "types" : [ "restaurant", "food", "point_of_interest", "establishment" ],
+         "user_ratings_total" : 213
+      },
+      {
+         "formatted_address" : "495-3 Bongcheon-ro, Haengun-dong, Gwanak-gu, Seoul, South Korea",
+         "geometry" : {
+            "location" : {
+               "lat" : 37.4814161,
+               "lng" : 126.9550758
+            },
+            "viewport" : {
+               "northeast" : {
+                  "lat" : 37.48276592989271,
+                  "lng" : 126.9564256298927
+               },
+               "southwest" : {
+                  "lat" : 37.48006627010727,
+                  "lng" : 126.9537259701073
+               }
+            }
+         },
+         "icon" : "https://maps.gstatic.com/mapfiles/place_api/icons/restaurant-71.png",
+         "id" : "bd588d435f896ec56a68ed9a867755c53fb25a9e",
+         "name" : "낙성곱창 본점",
+         "opening_hours" : {
+            "open_now" : true
+         },
+         "photos" : [
+            {
+               "height" : 3024,
+               "html_attributions" : [
+                  "\u003ca href=\"https://maps.google.com/maps/contrib/104767446507092877202\"\u003eErica yu\u003c/a\u003e"
+               ],
+               "photo_reference" : "CmRaAAAAnRI9V0mP14G7HbeES_w3z1RaZG_3MfAfT-pcJqXNsTv_63Gcwxcfgj90YyvnvyuL4mxzJ8aeHIvVm1fKqHlVRoIwq4EAHs9RYxdQx1BDjXnT6eO4wzQjG2w0gID3VlCyEhCodAwmLxhNFb0AyvUll8JhGhSGklefiNlE4PyYTqfsWgtGvCy3GA",
+               "width" : 4032
+            }
+         ],
+         "place_id" : "ChIJT-6cJ4iffDURxoBALtG-qvk",
+         "plus_code" : {
+            "compound_code" : "FXJ4+H2 Seoul, 서울특별시",
+            "global_code" : "8Q98FXJ4+H2"
+         },
+         "rating" : 4.3,
+         "reference" : "ChIJT-6cJ4iffDURxoBALtG-qvk",
+         "types" : [ "restaurant", "food", "point_of_interest", "establishment" ],
+         "user_ratings_total" : 107
+      },
+      {
+         "formatted_address" : "South Korea, Seoul, Gwanak-gu, Cheongnyong-dong, 1693-12 2층",
+         "geometry" : {
+            "location" : {
+               "lat" : 37.4802309,
+               "lng" : 126.9523098
+            },
+            "viewport" : {
+               "northeast" : {
+                  "lat" : 37.48158072989272,
+                  "lng" : 126.9536596298927
+               },
+               "southwest" : {
+                  "lat" : 37.47888107010728,
+                  "lng" : 126.9509599701073
+               }
+            }
+         },
+         "icon" : "https://maps.gstatic.com/mapfiles/place_api/icons/restaurant-71.png",
+         "id" : "eda87bfe2da6970e53428610ff82ccbef6a5ec82",
+         "name" : "Yulag",
+         "opening_hours" : {
+            "open_now" : true
+         },
+         "photos" : [
+            {
+               "height" : 4000,
+               "html_attributions" : [
+                  "\u003ca href=\"https://maps.google.com/maps/contrib/110750039591477686151\"\u003e이영진\u003c/a\u003e"
+               ],
+               "photo_reference" : "CmRaAAAA6Fa5NXtz157xIh4q5Uf5AHBZNtLW6owJVMyKnYjl_Ojb_LqlSLlFTgp6ZVwqc1K0YTuIXwJlkyb-IrwWRI_7HPDoI29ud7QWjeoGPNXkowODbApJUwTiWcoBNWz1jXzjEhCjEi8Vol7jpK4AWZB-ukEAGhR95l9tWc8msweRuW0K1O_YmpU82A",
+               "width" : 6000
+            }
+         ],
+         "place_id" : "ChIJUWE21YuffDUROZgMgogajlg",
+         "plus_code" : {
+            "compound_code" : "FXJ2+3W Seoul, 서울특별시",
+            "global_code" : "8Q98FXJ2+3W"
+         },
+         "rating" : 4.2,
+         "reference" : "ChIJUWE21YuffDUROZgMgogajlg",
+         "types" : [ "restaurant", "food", "point_of_interest", "establishment" ],
+         "user_ratings_total" : 112
+      },
+      {
+         "formatted_address" : "863-11 Cheongnyong-dong, Gwanak-gu, Seoul, South Korea",
+         "geometry" : {
+            "location" : {
+               "lat" : 37.4800171,
+               "lng" : 126.9518634
+            },
+            "viewport" : {
+               "northeast" : {
+                  "lat" : 37.48136692989272,
+                  "lng" : 126.9532132298927
+               },
+               "southwest" : {
+                  "lat" : 37.47866727010727,
+                  "lng" : 126.9505135701073
+               }
+            }
+         },
+         "icon" : "https://maps.gstatic.com/mapfiles/place_api/icons/restaurant-71.png",
+         "id" : "1462e3a7926318ed96076848b179be0217ed6a19",
+         "name" : "Pungnyeon-Og",
+         "photos" : [
+            {
+               "height" : 3024,
+               "html_attributions" : [
+                  "\u003ca href=\"https://maps.google.com/maps/contrib/113270028383240348522\"\u003e김현빈\u003c/a\u003e"
+               ],
+               "photo_reference" : "CmRaAAAAq2CIks3h88T49MjlrwvFCs9DXeBb7fdZZHbnSG2iN2ic0LTYutsFf53O64G__Rkwx7iQWonPybMFMSOqY2MP2yMJShg8uxCdMks87_GPOp6eGSCwvw1QoAaJmgARfonTEhAsoDGpnYCTCUyHl1m7wFWmGhSk0FGqVtrMSV7aq9PrhkCbQx_pkQ",
+               "width" : 4032
+            }
+         ],
+         "place_id" : "ChIJTdfumImffDURWrPxTK7Xzfs",
+         "plus_code" : {
+            "compound_code" : "FXJ2+2P Seoul, 서울특별시",
+            "global_code" : "8Q98FXJ2+2P"
+         },
+         "rating" : 3.6,
+         "reference" : "ChIJTdfumImffDURWrPxTK7Xzfs",
+         "types" : [ "restaurant", "food", "point_of_interest", "establishment" ],
+         "user_ratings_total" : 87
+      },
+      {
+         "formatted_address" : "Bongcheon-dong, Gwanak-gu, Seoul, South Korea",
+         "geometry" : {
+            "location" : {
+               "lat" : 37.4779144,
+               "lng" : 126.9526078
+            },
+            "viewport" : {
+               "northeast" : {
+                  "lat" : 37.47926422989272,
+                  "lng" : 126.9539576298927
+               },
+               "southwest" : {
+                  "lat" : 37.47656457010728,
+                  "lng" : 126.9512579701073
+               }
+            }
+         },
+         "icon" : "https://maps.gstatic.com/mapfiles/place_api/icons/restaurant-71.png",
+         "id" : "0a759c908e3b28bf3fc8501994c40ef81707c701",
+         "name" : "카모메서울대입구점",
+         "opening_hours" : {
+            "open_now" : true
+         },
+         "photos" : [
+            {
+               "height" : 1440,
+               "html_attributions" : [
+                  "\u003ca href=\"https://maps.google.com/maps/contrib/107305088791830153460\"\u003eJunHyeop Lee\u003c/a\u003e"
+               ],
+               "photo_reference" : "CmRaAAAAUOELB5Ki2BursCR0CJbMbHDIjrdrfbCk9Qyy7Xk-dKsqqFimHvEGhKi7frM79_PyBTTUwSYYgE-3slxyv_KWoXFS-xFoHOEJaKeB11RsxA_umlQatq9OLom8YK_w-4VEEhA-JbhNZhcZW5QY7Re19zOBGhSxxg2yM628V7amNz5lgJPXW4EzNQ",
+               "width" : 2560
+            }
+         ],
+         "place_id" : "ChIJo4azPYqffDUR43fJVmMXucY",
+         "plus_code" : {
+            "compound_code" : "FXH3+52 Seoul, 서울특별시",
+            "global_code" : "8Q98FXH3+52"
+         },
+         "price_level" : 2,
+         "rating" : 4.2,
+         "reference" : "ChIJo4azPYqffDUR43fJVmMXucY",
+         "types" : [ "restaurant", "food", "point_of_interest", "establishment" ],
+         "user_ratings_total" : 61
+      },
+      {
+         "formatted_address" : "1838 Nambusunhwan-ro, Bongcheon-dong, Gwanak-gu, Seoul, South Korea",
+         "geometry" : {
+            "location" : {
+               "lat" : 37.480389,
+               "lng" : 126.953964
+            },
+            "viewport" : {
+               "northeast" : {
+                  "lat" : 37.48173882989272,
+                  "lng" : 126.9553138298927
+               },
+               "southwest" : {
+                  "lat" : 37.47903917010727,
+                  "lng" : 126.9526141701073
+               }
+            }
+         },
+         "icon" : "https://maps.gstatic.com/mapfiles/place_api/icons/restaurant-71.png",
+         "id" : "db55649513e25b6c5725dc64b8654fad52ae6046",
+         "name" : "Chaesundang",
+         "opening_hours" : {
+            "open_now" : true
+         },
+         "photos" : [
+            {
+               "height" : 3024,
+               "html_attributions" : [
+                  "\u003ca href=\"https://maps.google.com/maps/contrib/112870113051904425384\"\u003eEJ Kim\u003c/a\u003e"
+               ],
+               "photo_reference" : "CmRaAAAAuNuRiLVISo4Nvd9LXHAx1Nig6qcxmSczg4QgZHgb0SAwDIJCbLiLqqrlo8FrPI7fL-esgbHk1NdQ8NRjr8n0PV4YbcpaVA2lEc6S85zcpqcwevBQbxmGYEkdsMJKf4gmEhB_imgOhhwwFyw70SODFNNrGhSL6SpSHblHRP2JEpfIyPZLhSuyDQ",
+               "width" : 4032
+            }
+         ],
+         "place_id" : "ChIJlwVI1YmffDURnlGfIXmVhZg",
+         "plus_code" : {
+            "compound_code" : "FXJ3+5H Seoul, 서울특별시",
+            "global_code" : "8Q98FXJ3+5H"
+         },
+         "price_level" : 2,
+         "rating" : 3.8,
+         "reference" : "ChIJlwVI1YmffDURnlGfIXmVhZg",
+         "types" : [ "restaurant", "food", "point_of_interest", "establishment" ],
+         "user_ratings_total" : 159
+      },
+      {
+         "formatted_address" : "Bongcheon-dong, Seoul, South Korea",
+         "geometry" : {
+            "location" : {
+               "lat" : 37.48121,
+               "lng" : 126.952712
+            },
+            "viewport" : {
+               "northeast" : {
+                  "lat" : 37.48255982989272,
+                  "lng" : 126.9540618298927
+               },
+               "southwest" : {
+                  "lat" : 37.47986017010727,
+                  "lng" : 126.9513621701073
+               }
+            }
+         },
+         "icon" : "https://maps.gstatic.com/mapfiles/place_api/icons/generic_business-71.png",
+         "id" : "087fab4c4ed1f8515a84d31836b14aba81fd811e",
+         "name" : "서울대입구역",
+         "photos" : [
+            {
+               "height" : 3492,
+               "html_attributions" : [
+                  "\u003ca href=\"https://maps.google.com/maps/contrib/101981595927169989066\"\u003eA Google User\u003c/a\u003e"
+               ],
+               "photo_reference" : "CmRaAAAAhjPOFrFBfSTUegvkwkGwtw7wMtbov48jogaOV5fc7rRRjzNRaeLZSNMLLW8M_wghImt8ZRWmLd0orO1ElZi5Qt1MO6S1mDjpYOhdLEtyX_B_43-EMp6Dyq24FMlStt75EhBmfzsbOjZ2O_wlmknrDjkhGhQ25SEIqsQavZZRftJ3XZzOmj62Zw",
+               "width" : 4656
+            }
+         ],
+         "place_id" : "ChIJ914QSoiffDURICTuC3-KjAE",
+         "plus_code" : {
+            "compound_code" : "FXJ3+F3 Seoul, 서울특별시",
+            "global_code" : "8Q98FXJ3+F3"
+         },
+         "rating" : 3.9,
+         "reference" : "ChIJ914QSoiffDURICTuC3-KjAE",
+         "types" : [ "transit_station", "point_of_interest", "establishment" ],
+         "user_ratings_total" : 29
+      },
+      {
+         "formatted_address" : "164 Gwanak-ro, Bongcheon-dong, Gwanak-gu, Seoul, South Korea",
+         "geometry" : {
+            "location" : {
+               "lat" : 37.4795649,
+               "lng" : 126.9528901
+            },
+            "viewport" : {
+               "northeast" : {
+                  "lat" : 37.48091472989272,
+                  "lng" : 126.9542399298927
+               },
+               "southwest" : {
+                  "lat" : 37.47821507010728,
+                  "lng" : 126.9515402701073
+               }
+            }
+         },
+         "icon" : "https://maps.gstatic.com/mapfiles/place_api/icons/restaurant-71.png",
+         "id" : "403a397cc3b61784a7c0709f57008c438370f01e",
+         "name" : "Otsal(Authentic Indian Cuisine)",
+         "opening_hours" : {
+            "open_now" : true
+         },
+         "photos" : [
+            {
+               "height" : 3024,
+               "html_attributions" : [
+                  "\u003ca href=\"https://maps.google.com/maps/contrib/114985562566190302711\"\u003eBibs snu\u003c/a\u003e"
+               ],
+               "photo_reference" : "CmRaAAAAuH8_C0hC9twpd1x2UZcz3duXWffyvG8bDf-fZbQklX0KSG3YyBM3MwB9WlresyUSEbAWtxgrLThIactzzAzXkVf5citRah9ym8rkxACCFGzwdcy6HUpez06AK_tnehpOEhAwjNNnwRF8Xjsf1_6FR46bGhS72SrHQ5i5uvbZdMoDpQcfaa44fg",
+               "width" : 4032
+            }
+         ],
+         "place_id" : "ChIJKVMg64mffDURoCq9TTiKkJQ",
+         "plus_code" : {
+            "compound_code" : "FXH3+R5 Seoul, 서울특별시",
+            "global_code" : "8Q98FXH3+R5"
+         },
+         "price_level" : 2,
+         "rating" : 4.4,
+         "reference" : "ChIJKVMg64mffDURoCq9TTiKkJQ",
+         "types" : [ "restaurant", "food", "point_of_interest", "establishment" ],
+         "user_ratings_total" : 539
+      },
+      {
+         "formatted_address" : "70 Gwanak-ro 14-gil, Bongcheon-dong, Gwanak-gu, Seoul, South Korea",
+         "geometry" : {
+            "location" : {
+               "lat" : 37.478216,
+               "lng" : 126.9562818
+            },
+            "viewport" : {
+               "northeast" : {
+                  "lat" : 37.47956582989273,
+                  "lng" : 126.9576316298927
+               },
+               "southwest" : {
+                  "lat" : 37.47686617010728,
+                  "lng" : 126.9549319701073
+               }
+            }
+         },
+         "icon" : "https://maps.gstatic.com/mapfiles/place_api/icons/restaurant-71.png",
+         "id" : "7972dda030fc2d692d465f707de63f821ac759e6",
+         "name" : "안녕베트남 Nhà hàng Việt Nam",
+         "opening_hours" : {
+            "open_now" : true
+         },
+         "photos" : [
+            {
+               "height" : 3024,
+               "html_attributions" : [
+                  "\u003ca href=\"https://maps.google.com/maps/contrib/112321292871347017483\"\u003eJohn Min\u003c/a\u003e"
+               ],
+               "photo_reference" : "CmRaAAAACIrzVKno_LBp3niVyFZgk8jymtEGOcOVhXXkVMOImxcptDAi9D8VT7-_oH2_i-4wWu7H9pYEJFIvCFlcE3jqQW-PZqoVq7x03-SHwMx217-2PJQmHdUwzwgGXPX0kvPzEhA6dYGYJHnPRDZwArCWF3dZGhQyslyAT1AmbM6pP6-V-COfdnujKQ",
+               "width" : 4032
+            }
+         ],
+         "place_id" : "ChIJN3LXbdCYfDURyck5DtxTfPg",
+         "plus_code" : {
+            "compound_code" : "FXH4+7G Seoul, 서울특별시",
+            "global_code" : "8Q98FXH4+7G"
+         },
+         "price_level" : 2,
+         "rating" : 4.1,
+         "reference" : "ChIJN3LXbdCYfDURyck5DtxTfPg",
+         "types" : [ "restaurant", "food", "point_of_interest", "establishment" ],
+         "user_ratings_total" : 263
+      },
+      {
+         "formatted_address" : "South Korea, Seoul, Gwanak-gu, Bongcheon-dong, Nakseongdae-ro, 22-10 1층",
+         "geometry" : {
+            "location" : {
+               "lat" : 37.4769663,
+               "lng" : 126.9586042
+            },
+            "viewport" : {
+               "northeast" : {
+                  "lat" : 37.47831612989273,
+                  "lng" : 126.9599540298927
+               },
+               "southwest" : {
+                  "lat" : 37.47561647010729,
+                  "lng" : 126.9572543701073
+               }
+            }
+         },
+         "icon" : "https://maps.gstatic.com/mapfiles/place_api/icons/restaurant-71.png",
+         "id" : "2d50892b503fc1a26c7504bb493b1dbe9afe0613",
+         "name" : "마이무 MY MOO",
+         "opening_hours" : {
+            "open_now" : true
+         },
+         "photos" : [
+            {
+               "height" : 3024,
+               "html_attributions" : [
+                  "\u003ca href=\"https://maps.google.com/maps/contrib/116110870085785653188\"\u003eA Google User\u003c/a\u003e"
+               ],
+               "photo_reference" : "CmRaAAAAQXYWspecC51tI0dto2b3MWjjtRFxKcCtKAnwJa66QxjaG-hNDhKvuIDJPBJguNHYd4SENUNmzXr0m2Q-VDnExA7XgsqmKvhI863Yncvxh6m7vVZkJL24ODgF7PtmTkDcEhB1BHVer_jAz_6gjdq__oA3GhQNOF-yiGNmwlDcfR8wtOh3gJgnvQ",
+               "width" : 3024
+            }
+         ],
+         "place_id" : "ChIJCzjlsCagfDURxhDwYDQmvlg",
+         "plus_code" : {
+            "compound_code" : "FXG5+QC Seoul, 서울특별시",
+            "global_code" : "8Q98FXG5+QC"
+         },
+         "rating" : 4.1,
+         "reference" : "ChIJCzjlsCagfDURxhDwYDQmvlg",
+         "types" : [ "restaurant", "food", "point_of_interest", "establishment" ],
+         "user_ratings_total" : 383
+      }
+   ],
+   "status" : "OK"
+}

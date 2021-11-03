@@ -60,6 +60,9 @@ $(function(){
 	
 	//일반 메세지 보내기
 	$("#send").click(function(){
+		
+		if($("#msg").val().trim().length == 0) return;
+		
 		var o = {
 				type:"message",
 				msg: $("#msg").val(),
